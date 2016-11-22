@@ -18,6 +18,10 @@ git add, commit, push
 
 `gacp help`
 
+## CONTRIBUTION
+
+publish `npm run release`
+
 ## INSPIRATION
 
 - [gcmt](https://github.com/vivaxy/gcmt)

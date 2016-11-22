@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file. See [standa
 * **cz:** add up cz ([ecefae8](https://github.com/vivaxy/gacp/commit/ecefae8))
 
 <a name="1.0.0"></a>
-# [1.0.0](https://github.com/vivaxy/gacp/compare/546577...v1.0.0)
+# [1.0.0](https://github.com/vivaxy/gacp/compare/546577...v1.0.0) (2016-11-22)
 
 ### Features
 
@@ -21,6 +21,6 @@ All notable changes to this project will be documented in this file. See [standa
 * optimize help message
 
 <a name="0.0.0"></a>
-# [0.0.0](https://github.com/vivaxy/gacp/compare/d4b3c3...546577)
+# [0.0.0](https://github.com/vivaxy/gacp/compare/d4b3c3...546577) (2016-11-22)
 
 * first version

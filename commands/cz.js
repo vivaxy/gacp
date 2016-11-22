@@ -17,7 +17,7 @@ export default async() => {
     }
 
     const commitMessage = await new Promise((resolve, reject) => {
-        return czConventionalChangelog.prompter(inquirer, (commitMessage) => {
+        czConventionalChangelog.prompter(inquirer, (commitMessage) => {
             resolve(commitMessage);
         });
     });

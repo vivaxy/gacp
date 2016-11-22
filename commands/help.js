@@ -8,7 +8,7 @@ export default () => {
 usage: gacp
 
     gacp
-    gacp <message>
+    gacp <COMMIT MESSAGE>
     gacp help
 `)
 };

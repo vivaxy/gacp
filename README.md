@@ -10,6 +10,14 @@ git add, commit, push
 
 `sudo npm i -g gacp`
 
+## USAGE
+
+`gacp`
+
+`gacp <COMMIT MESSAGE>`
+
+`gacp help`
+
 ## INSPIRATION
 
 - [gcmt](https://github.com/vivaxy/gcmt)

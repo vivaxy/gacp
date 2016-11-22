@@ -15,6 +15,8 @@ git add, commit, push
 
 `gacp`
 
+`gacp cz`
+
 `gacp <COMMIT MESSAGE>`
 
 `gacp help`

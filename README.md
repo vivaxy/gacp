@@ -3,6 +3,7 @@
 [![NPM Version][npm-version-image]][npm-url]
 [![NPM Downloads][npm-downloads-image]][npm-url]
 [![MIT License][license-image]][license-url]
+[![Standard Version][standard-version-image]][standard-version-url]
 
 git add, commit, push
 
@@ -33,3 +34,5 @@ publish `npm run release`
 [npm-downloads-image]: https://img.shields.io/npm/dt/gacp.svg?style=flat-square
 [license-image]: https://img.shields.io/npm/l/gacp.svg?style=flat-square
 [license-url]: LICENSE
+[standard-version-image]: https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=flat-square
+[standard-version-url]: https://github.com/conventional-changelog/standard-version

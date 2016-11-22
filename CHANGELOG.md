@@ -12,13 +12,15 @@ All notable changes to this project will be documented in this file. See [standa
 * **cz:** add cz support ([3d313c5](https://github.com/vivaxy/gacp/commit/3d313c5))
 * **cz:** add up cz ([ecefae8](https://github.com/vivaxy/gacp/commit/ecefae8))
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/vivaxy/gacp/compare/546577...v1.0.0)
 
+### Features
 
-# 1.0.0
+* check git repository
+* optimize help message
 
-- check git repository
-- optimize help message
+<a name="0.0.0"></a>
+# [0.0.0](https://github.com/vivaxy/gacp/compare/d4b3c3...546577)
 
-# 0.0.0
-
-first version
+* first version

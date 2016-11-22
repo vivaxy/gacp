@@ -4,31 +4,25 @@
  */
 
 import inquirer from 'inquirer';
-import chark from 'chalk';
 import sh from 'shelljs';
 
-const shellSilentConfig = {
-    silent: true,
-};
-
-const getStdoutFromShell = (command) => {
-    let result = null;
-    const shellExec = sh.exec(command, shellSilentConfig);
-    if (shellExec.code === 0) {
-        result = shellExec.stdout.split(`\n`)[0];
-    }
-    return result;
-};
+import getInfoFromShell from '../lib/getInfoFromShell';
+import isAGitRepository from '../lib/isAGitRepository';
+import * as console from '../lib/console';
 
 const getRemote = () => {
-    return getStdoutFromShell(`git remote`);
+    return getInfoFromShell(`git remote`);
 };
 
 const getBranch = () => {
-    return getStdoutFromShell(`git symbolic-ref --short HEAD`);
+    return getInfoFromShell(`git symbolic-ref --short HEAD`);
 };
 
 export default async(...restArgs) => {
+    if (!isAGitRepository()) {
+        console.error(`not a git repository`);
+        process.exit(1);
+    }
     let commitMessage = null;
     if (restArgs.length === 0) {
         const answers = await inquirer.prompt([{
@@ -37,7 +31,7 @@ export default async(...restArgs) => {
             message: `please enter commit message:`,
             validate: (msg) => {
                 if (!msg.length) {
-                    return `commit message is required`
+                    return `commit message is required`;
                 }
                 return true;
             },
@@ -47,12 +41,13 @@ export default async(...restArgs) => {
         commitMessage = restArgs.join(` `);
     }
     const addCommand = `git add .`;
-    console.log(chark.green(addCommand));
+    console.info(addCommand);
     sh.exec(addCommand);
     const commitCommand = `git commit -m "${commitMessage}"`;
-    console.log(chark.green(commitCommand));
+    console.info(commitCommand);
     sh.exec(commitCommand);
     const pushCommand = `git push ${getRemote()} ${getBranch()}`;
-    console.log(chark.green(pushCommand));
+    console.info(pushCommand);
     sh.exec(pushCommand);
+    return true;
 };

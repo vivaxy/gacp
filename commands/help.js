@@ -5,10 +5,10 @@
 
 export default () => {
     console.log(`
-    Usage: gacp
+usage: gacp
 
-        gacp
-        gacp message
-        gacp help
+    gacp
+    gacp <message>
+    gacp help
 `)
 };

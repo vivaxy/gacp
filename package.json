@@ -32,5 +32,11 @@
     "minimatch": "^3.0.3",
     "shelljs": "^0.7.5",
     "yargs": "^6.4.0"
+  },
+  "devDependencies": {
+    "standard-version": "^3.0.0"
+  },
+  "scripts": {
+    "release": "standard-version"
   }
 }

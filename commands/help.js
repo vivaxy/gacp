@@ -7,7 +7,8 @@ export default () => {
     console.log(`
     Usage: gacp
 
-        gacp config
+        gacp
+        gacp message
         gacp help
 `)
 };

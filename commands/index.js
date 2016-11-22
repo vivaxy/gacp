@@ -4,19 +4,10 @@
  */
 
 import inquirer from 'inquirer';
-import sh from 'shelljs';
 
-import getInfoFromShell from '../lib/getInfoFromShell';
 import isAGitRepository from '../lib/isAGitRepository';
 import * as console from '../lib/console';
-
-const getRemote = () => {
-    return getInfoFromShell(`git remote`);
-};
-
-const getBranch = () => {
-    return getInfoFromShell(`git symbolic-ref --short HEAD`);
-};
+import acp from '../lib/acp';
 
 export default async(...restArgs) => {
     if (!isAGitRepository()) {
@@ -40,14 +31,5 @@ export default async(...restArgs) => {
     } else {
         commitMessage = restArgs.join(` `);
     }
-    const addCommand = `git add .`;
-    console.info(addCommand);
-    sh.exec(addCommand);
-    const commitCommand = `git commit -m "${commitMessage}"`;
-    console.info(commitCommand);
-    sh.exec(commitCommand);
-    const pushCommand = `git push ${getRemote()} ${getBranch()}`;
-    console.info(pushCommand);
-    sh.exec(pushCommand);
-    return true;
+    acp(commitMessage);
 };

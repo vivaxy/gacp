@@ -30,6 +30,7 @@ publish `npm run release`
 - [gcmt](https://github.com/vivaxy/gcmt)
 - [commitizen](https://github.com/commitizen/cz-cli)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
+- [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
 
 [npm-version-image]: http://img.shields.io/npm/v/gacp.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/gacp

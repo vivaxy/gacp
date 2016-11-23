@@ -3,11 +3,10 @@
  * @author vivaxy
  */
 
-import inquirer from 'inquirer';
-
 import isAGitRepository from '../lib/isAGitRepository';
 import * as console from '../lib/console';
 import acp from '../lib/acp';
+import richPromopt from '../lib/richPrompt';
 
 export default async(...restArgs) => {
     if (!isAGitRepository()) {
@@ -16,18 +15,7 @@ export default async(...restArgs) => {
     }
     let commitMessage = null;
     if (restArgs.length === 0) {
-        const answers = await inquirer.prompt([{
-            type: `input`,
-            name: `commitMessage`,
-            message: `please enter commit message:`,
-            validate: (msg) => {
-                if (!msg.length) {
-                    return `commit message is required`;
-                }
-                return true;
-            },
-        }]);
-        commitMessage = answers.commitMessage;
+        commitMessage = await richPromopt();
     } else {
         commitMessage = restArgs.join(` `);
     }

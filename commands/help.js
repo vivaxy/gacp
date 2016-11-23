@@ -8,8 +8,6 @@ export default () => {
 usage: gacp
 
     gacp
-    gacp <COMMIT MESSAGE>
-    gacp cz
     gacp help
 `)
 };

@@ -15,15 +15,13 @@ git add, commit, push
 
 `gacp`
 
-`gacp cz`
-
-`gacp <COMMIT MESSAGE>`
-
 `gacp help`
 
 ## CONTRIBUTION
 
 publish `npm run release`
+
+then `git push --tag origin master; npm publish --registry="https://registry.npmjs.org/"`
 
 ## INSPIRATION
 

@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/vivaxy/gacp/compare/v1.1.1...v1.1.2) (2016-11-23)
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/vivaxy/gacp/compare/v1.1.0...v1.1.1) (2016-11-23)
 
@@ -29,4 +34,3 @@ All notable changes to this project will be documented in this file. See [standa
 # [0.0.0](https://github.com/vivaxy/gacp/compare/d4b3c3...546577) (2016-11-22)
 
 * first version
-

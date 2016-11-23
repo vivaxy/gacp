@@ -17,7 +17,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* check git repository
+* check git repository ([ff0585a](https://github.com/vivaxy/gacp/commit/ff0585a))
 * optimize help message
 
 <a name="0.0.0"></a>

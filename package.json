@@ -14,7 +14,11 @@
     "git",
     "add",
     "commit",
-    "push"
+    "push",
+    "emoji",
+    "gitmoji",
+    "changelog",
+    "conventional"
   ],
   "author": "vivaxy",
   "license": "MIT",

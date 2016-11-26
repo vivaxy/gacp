@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.2"></a>
+## [1.3.2](https://github.com/vivaxy/gacp/compare/v1.3.1...v1.3.2) (2016-11-26)
+
+
+### Bug Fixes
+
+* **commit:** :bug:fix commit when message contains '`', fix push when remote not exists ([f198c2c](https://github.com/vivaxy/gacp/commit/f198c2c))
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/vivaxy/gacp/compare/v1.3.0...v1.3.1) (2016-11-23)
 

@@ -10,7 +10,8 @@ import getBranch from '../status/getBranch';
 import checkRemoteDiffer from '../status/checkRemoteDiffer';
 
 export default async() => {
-    if (await checkRemoteDiffer()) {
+    const remoteDiffer = await checkRemoteDiffer();
+    if (remoteDiffer) {
         throw new Error(`remote differ, please pull changes`);
     }
 

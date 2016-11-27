@@ -6,5 +6,7 @@
 import getInfoFromShell from '../../lib/getInfoFromShell';
 
 export default async() => {
-    return await getInfoFromShell(`git`, [`rev-list`, `--count`, `--left-only`, `@{u}...HEAD`]) !== `0`;
+    const revCount = await getInfoFromShell(`git`, [`rev-list`, `--count`, `--left-only`, `@{u}...HEAD`]);
+    console.log(revCount);
+    return revCount !== `0`;
 };

@@ -13,6 +13,7 @@ import * as console from '../lib/console';
 import gitAdd from '../git/commands/gitAdd';
 import gitCommit from '../git/commands/gitCommit';
 import gitPush from '../git/commands/gitPush';
+import gitFetch from '../git/commands/gitFetch';
 import prompt from '../lib/prompt';
 
 const prepare = async() => {
@@ -27,7 +28,9 @@ const prepare = async() => {
         process.exit(1);
     }
     if (!needGitAddOrCommit) {
-        if (!await checkNeedPush()) {
+        await gitFetch();
+        const needPush = await checkNeedPush();
+        if (!needPush) {
             console.error(`nothing to commit or push, working tree clean`);
             process.exit(1);
         }

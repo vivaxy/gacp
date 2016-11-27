@@ -11,15 +11,11 @@ import gitBranch from '../status/gitBranch';
 import getGitRemoteDiffer from '../status/getGitRemoteDiffer';
 
 export default () => {
-    // do not push when remove not exists
-    if (gitRemote) {
-
-        if (getGitRemoteDiffer()) {
-            throw new Error(`remote differ, please pull changes`);
-        }
-
-        const pushCommand = `git push ${gitRemote} ${gitBranch} --tag`;
-        console.info(pushCommand);
-        sh.exec(pushCommand);
+    if (getGitRemoteDiffer()) {
+        throw new Error(`remote differ, please pull changes`);
     }
+
+    const pushCommand = `git push ${gitRemote} ${gitBranch} --tag`;
+    console.info(pushCommand);
+    sh.exec(pushCommand);
 };

@@ -66,6 +66,11 @@ export default async() => {
         listr.add({
             title: `git push`,
             task: gitPush,
+            skip: () => {
+                if (gitRemote) {
+                    return `no tracking remote`;
+                }
+            },
         });
     }
 

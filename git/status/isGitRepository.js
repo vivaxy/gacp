@@ -6,11 +6,11 @@
 import path from 'path';
 import sh from 'shelljs';
 
-import getInfoFromShell from './getInfoFromShell';
+import getInfoFromShell from '../../lib/getInfoFromShell';
 
 const cwd = process.cwd();
 
-export default () => {
+const check = () => {
     if (sh.test(`-d`, path.join(cwd, `.git`))) {
         if (getInfoFromShell(`git rev-parse --is-inside-work-tree`) === `true`) {
             return true;
@@ -18,3 +18,5 @@ export default () => {
     }
     return false;
 };
+
+export default check();

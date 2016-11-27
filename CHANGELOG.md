@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.1"></a>
+## [1.4.1](https://github.com/vivaxy/gacp/compare/v1.4.0...v1.4.1) (2016-11-27)
+
+
+### Bug Fixes
+
+* **git:** :bug:fix check remote differ ([c8603cc](https://github.com/vivaxy/gacp/commit/c8603cc))
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/vivaxy/gacp/compare/v1.3.3...v1.4.0) (2016-11-27)
 

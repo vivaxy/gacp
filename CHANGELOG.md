@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/vivaxy/gacp/compare/v1.3.3...v1.4.0) (2016-11-27)
+
+
+### Bug Fixes
+
+* **babel:** :bug:fix babel rest spread arguments ([9c8352b](https://github.com/vivaxy/gacp/commit/9c8352b))
+* **git:** :bug:fetch before check need push ([68db649](https://github.com/vivaxy/gacp/commit/68db649))
+* **prompt:** :bug:if nothing changed, prompt is not needed ([84498d0](https://github.com/vivaxy/gacp/commit/84498d0))
+* **tasks:** :bug:fix no traking remote ([860f272](https://github.com/vivaxy/gacp/commit/860f272))
+
+
+### Features
+
+* **commit:** check if a git tree is clean ([707750d](https://github.com/vivaxy/gacp/commit/707750d))
+* **exec:** :hammer:using `execa` instead of `shelljs` ([6dc5256](https://github.com/vivaxy/gacp/commit/6dc5256))
+* **git:** :sparkles:check remote differ to info users to pull first; check local status to decide i ([7bca53c](https://github.com/vivaxy/gacp/commit/7bca53c))
+* **git:** :sparkles:skip tasks or add task according to git status ([3793d68](https://github.com/vivaxy/gacp/commit/3793d68))
+* **tasks:** :sparkles:skip git push when there is no tracking remote ([d4a6fe9](https://github.com/vivaxy/gacp/commit/d4a6fe9))
+
+
+
 <a name="1.3.3"></a>
 ## [1.3.3](https://github.com/vivaxy/gacp/compare/v1.3.2...v1.3.3) (2016-11-27)
 

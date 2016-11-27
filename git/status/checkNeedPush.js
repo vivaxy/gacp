@@ -8,9 +8,9 @@ import execa from '../../lib/wrappedExeca';
 import getBranch from './getBranch';
 import getRemote from './getRemote';
 
-const hasCommitInShell = async(...command) => {
+const hasCommitInShell = async(file, args) => {
     let result = true;
-    const shellExec = await execa(...command);
+    const shellExec = await execa(file, args);
     if (shellExec.code === 0) {
         const splitResult = shellExec.stdout.split(`\n\r`);
         if (splitResult[0] === ``) {

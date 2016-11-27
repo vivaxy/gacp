@@ -17,6 +17,10 @@ git add, commit, push
 
 `gacp help`
 
+## CHANGELOG
+
+[Change log](CHANGELOG.md)
+
 ## CONTRIBUTION
 
 publish `npm run release`

@@ -55,7 +55,7 @@ export default async() => {
             task: gitAdd,
             skip: () => {
                 if (gitClean) {
-                    return `nothing to commit, working tree clean`;
+                    return `nothing to add, working tree clean`;
                 }
             },
         },

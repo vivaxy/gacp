@@ -67,7 +67,7 @@ export default async() => {
             title: `git push`,
             task: gitPush,
             skip: () => {
-                if (gitRemote) {
+                if (!gitRemote) {
                     return `no tracking remote`;
                 }
             },

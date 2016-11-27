@@ -17,9 +17,10 @@ const minimatchOption = {
 require('babel-polyfill');
 // http://stackoverflow.com/questions/35120305/using-babel-register-in-my-cli-npm-app-works-locally-but-not-globally-after-pub/35120765#35120765
 require('babel-register')({
+    retainLines: true,
     ignore: (filename) => {
-        // ignore **/node_modules/granturismo/node_modules/**
-        // not ignore **/node_modules/granturismo/**
+        // ignore **/node_modules/PROJECT_NAME/node_modules/**
+        // not ignore **/node_modules/PROJECT_NAME/**
         // ignore **/node_modules/**
         if (minimatch(filename, `**/node_modules/${PROJECT_NAME}/node_modules/**`, minimatchOption)) {
             return true;

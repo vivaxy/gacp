@@ -3,12 +3,8 @@
  * @author vivaxy
  */
 
-import sh from 'shelljs';
+import execa from '../../lib/wrappedExeca';
 
-import * as console from '../../lib/console';
-
-export default (commitMessage) => {
-    const commitCommand = `git commit -m "${commitMessage}"`;
-    console.info(commitCommand);
-    sh.exec(commitCommand);
+export default async(commitMessage) => {
+    return await execa(`git`, [`commit`, `-m`, commitMessage]);
 };

@@ -5,35 +5,43 @@
 
 import Listr from 'listr';
 
-import isGitRepository from '../git/status/isGitRepository';
-import gitClean from '../git/status/gitClean';
-import needGitPush from '../git/status/needGitPush';
-import gitRemote from '../git/status/gitRemote';
+import checkGitRepository from '../git/status/checkGitRepository';
+import getClean from '../git/status/getClean';
+import checkNeedPush from '../git/status/checkNeedPush';
+import getRemote from '../git/status/getRemote';
 import * as console from '../lib/console';
 import gitAdd from '../git/commands/gitAdd';
 import gitCommit from '../git/commands/gitCommit';
 import gitPush from '../git/commands/gitPush';
 import prompt from '../lib/prompt';
 
-const prepare = () => {
+const prepare = async() => {
+
+    const gitClean = await getClean();
 
     const needGitAddOrCommit = !gitClean;
+    const isGitRepository = await checkGitRepository();
 
     if (!isGitRepository) {
         console.error(`not a git repository`);
         process.exit(1);
     }
     if (!needGitAddOrCommit) {
-        if (!needGitPush) {
+        if (!await checkNeedPush()) {
             console.error(`nothing to commit or push, working tree clean`);
             process.exit(1);
         }
     }
+    return {
+        gitClean,
+    };
 };
 
 export default async() => {
 
-    prepare();
+    const {
+        gitClean,
+    } = await prepare();
 
     const commitMessage = await prompt();
 
@@ -49,8 +57,8 @@ export default async() => {
         },
         {
             title: `git commit`,
-            task: () => {
-                return gitCommit(commitMessage);
+            task: async() => {
+                return await gitCommit(commitMessage);
             },
             skip: () => {
                 if (gitClean) {
@@ -58,21 +66,19 @@ export default async() => {
                 }
             },
         },
-    ];
-
-    const listr = new Listr(tasks);
-
-    if (gitRemote) {
-        listr.add({
+        {
             title: `git push`,
             task: gitPush,
-            skip: () => {
-                if (!gitRemote) {
+            skip: async() => {
+                const remote = await getRemote();
+                if (!remote) {
                     return `no tracking remote`;
                 }
             },
-        });
-    }
+        },
+    ];
+
+    const listr = new Listr(tasks);
 
     try {
         await listr.run();

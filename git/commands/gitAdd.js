@@ -3,12 +3,8 @@
  * @author vivaxy
  */
 
-import sh from 'shelljs';
+import execa from '../../lib/wrappedExeca';
 
-import * as console from '../../lib/console';
-
-export default () => {
-    const addCommand = `git add .`;
-    console.info(addCommand);
-    sh.exec(addCommand);
+export default async() => {
+    return await execa(`git`, [`add`, `.`]);
 };

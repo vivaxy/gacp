@@ -3,19 +3,19 @@
  * @author vivaxy
  */
 
-import sh from 'shelljs';
+import execa from '../../lib/wrappedExeca';
 
-import * as console from '../../lib/console';
-import gitRemote from '../status/gitRemote';
-import gitBranch from '../status/gitBranch';
-import getGitRemoteDiffer from '../status/getGitRemoteDiffer';
+import getRemote from '../status/getRemote';
+import getBranch from '../status/getBranch';
+import checkRemoteDiffer from '../status/checkRemoteDiffer';
 
-export default () => {
-    if (getGitRemoteDiffer()) {
+export default async() => {
+    if (await checkRemoteDiffer()) {
         throw new Error(`remote differ, please pull changes`);
     }
 
-    const pushCommand = `git push ${gitRemote} ${gitBranch} --tag`;
-    console.info(pushCommand);
-    sh.exec(pushCommand);
+    const branch = await getBranch();
+    const remote = await getRemote();
+
+    return await execa(`git`, [`push`, remote, branch, `--tag`]);
 };

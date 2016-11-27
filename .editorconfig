@@ -19,3 +19,6 @@ quote_type = double
 
 [package.json]
 indent_size = 2
+
+[.babelrc]
+indent_size = 2

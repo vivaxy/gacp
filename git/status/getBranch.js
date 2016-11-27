@@ -5,4 +5,6 @@
 
 import getInfoFromShell from '../../lib/getInfoFromShell';
 
-export default getInfoFromShell(`git remote`);
+export default async() => {
+    return await getInfoFromShell(`git`, [`symbolic-ref`, `--short`, `HEAD`]);
+};

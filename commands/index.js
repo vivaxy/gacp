@@ -43,7 +43,11 @@ export default async() => {
         gitClean,
     } = await prepare();
 
-    const commitMessage = await prompt();
+    let commitMessage;
+
+    if (!gitClean) {
+        commitMessage = await prompt();
+    }
 
     const tasks = [
         {

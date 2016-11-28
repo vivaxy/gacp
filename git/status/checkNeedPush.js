@@ -10,18 +10,20 @@ import getRemote from './getRemote';
 
 const hasCommitInShell = async(file, args) => {
     let result = true;
-    const {code, stdout} = await execa(file, args);
-    if (code === 0) {
-        const splitResult = stdout.split(`\n\r`);
-        if (splitResult[0] === ``) {
-            result = false;
+    try {
+        const {code, stdout} = await execa(file, args);
+        if (code === 0) {
+            const splitResult = stdout.split(`\n\r`);
+            if (splitResult[0] === ``) {
+                result = false;
+            }
         }
-    } else {
+    } catch (ex) {
         // fatal: ambiguous argument 'remote/sonar..sonar': unknown revision or path not in the working tree.
         // Use '--' to separate paths from revisions, like this:
         // 'git <command> [<revision>...] -- [<file>...]'
         // remote branch not exits
-        result = true;
+        // result = true;
     }
     return result;
 };

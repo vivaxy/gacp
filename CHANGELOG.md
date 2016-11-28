@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.2"></a>
+## [1.4.2](https://github.com/vivaxy/gacp/compare/v1.4.1...v1.4.2) (2016-11-28)
+
+
+### Bug Fixes
+
+* **push:** :bug:fix check push, when remote branch not exists, an error thrown ([8e7a70e](https://github.com/vivaxy/gacp/commit/8e7a70e))
+* **push:** :bug:fix check push, when remote branch not exists, output errors ([d116891](https://github.com/vivaxy/gacp/commit/d116891))
+
+
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://github.com/vivaxy/gacp/compare/v1.4.0...v1.4.1) (2016-11-27)
 

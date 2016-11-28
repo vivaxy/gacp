@@ -25,7 +25,7 @@ git add, commit, push
 
 publish `npm run release`
 
-then `git push --tag origin master; npm publish --registry="https://registry.npmjs.org/"`
+then `gacp; npm publish --registry="https://registry.npmjs.org/"`
 
 ## INSPIRATION
 

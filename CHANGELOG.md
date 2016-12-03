@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.3"></a>
+## [1.4.3](https://github.com/vivaxy/gacp/compare/v1.4.2...v1.4.3) (2016-12-03)
+
+
+### Bug Fixes
+
+* :bug:fix when user presses key, console output gets wired ([7301f00](https://github.com/vivaxy/gacp/commit/7301f00))
+
+
+
 <a name="1.4.2"></a>
 ## [1.4.2](https://github.com/vivaxy/gacp/compare/v1.4.1...v1.4.2) (2016-11-28)
 

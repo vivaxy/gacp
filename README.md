@@ -1,5 +1,7 @@
 # GACP
 
+![GACP](./assets/images/gacp.png)
+
 [![NPM Version][npm-version-image]][npm-url]
 [![NPM Downloads][npm-downloads-image]][npm-url]
 [![MIT License][license-image]][license-url]
@@ -7,27 +9,27 @@
 
 git add, commit, push
 
-## INSTALLATION
+## Installation
 
 `sudo npm i -g gacp`
 
-## USAGE
+## Usage
 
 `gacp`
 
 `gacp help`
 
-## CHANGELOG
+## Change log
 
 [Change log](CHANGELOG.md)
 
-## CONTRIBUTION
+## Contribution
 
 publish `npm run release`
 
 then `gacp; npm publish --registry="https://registry.npmjs.org/"`
 
-## INSPIRATION
+## Related
 
 - [gcmt](https://github.com/vivaxy/gcmt)
 - [commitizen](https://github.com/commitizen/cz-cli)

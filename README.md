@@ -25,9 +25,7 @@ git add, commit, push
 
 ## Contribution
 
-publish `npm run release`
-
-then `gacp; npm publish --registry="https://registry.npmjs.org/"`
+publish `npm run release; gacp; npm publish --registry="https://registry.npmjs.org/"`
 
 ## Related
 

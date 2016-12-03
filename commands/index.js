@@ -15,6 +15,7 @@ import gitCommit from '../git/commands/gitCommit';
 import gitPush from '../git/commands/gitPush';
 import gitFetch from '../git/commands/gitFetch';
 import prompt from '../lib/prompt';
+import hijackProcessInput from '../lib/hijackProcessInput';
 
 const prepare = async() => {
 
@@ -88,9 +89,12 @@ export default async() => {
     const listr = new Listr(tasks);
 
     try {
+        hijackProcessInput.pause();
         await listr.run();
     } catch (ex) {
         console.error(ex);
+    } finally {
+        hijackProcessInput.resume();
     }
 
 };

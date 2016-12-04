@@ -96,6 +96,7 @@ export default async() => {
         console.error(ex);
     } finally {
         hijackProcessInput.resume();
+        process.exit(0);
     }
 
 };

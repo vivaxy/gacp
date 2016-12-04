@@ -89,6 +89,7 @@ export default async() => {
     const listr = new Listr(tasks);
 
     try {
+        // https://github.com/SamVerschueren/listr/issues/38
         hijackProcessInput.pause();
         await listr.run();
     } catch (ex) {

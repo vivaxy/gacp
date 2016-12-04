@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.4"></a>
+## [1.4.4](https://github.com/vivaxy/gacp/compare/v1.4.3...v1.4.4) (2016-12-04)
+
+
+### Bug Fixes
+
+* :bug:fix process not exiting after `listr` have done ([9710067](https://github.com/vivaxy/gacp/commit/9710067))
+
+
+
 <a name="1.4.3"></a>
 ## [1.4.3](https://github.com/vivaxy/gacp/compare/v1.4.2...v1.4.3) (2016-12-03)
 

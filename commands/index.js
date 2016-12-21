@@ -15,7 +15,7 @@ import gitCommit from '../git/commands/gitCommit';
 import gitPush from '../git/commands/gitPush';
 import gitFetch from '../git/commands/gitFetch';
 import prompt from '../lib/prompt';
-import hijackProcessInput from '../lib/hijackProcessInput';
+// import hijackProcessInput from '../lib/hijackProcessInput';
 
 const prepare = async() => {
 
@@ -90,12 +90,12 @@ export default async() => {
 
     try {
         // https://github.com/SamVerschueren/listr/issues/38
-        hijackProcessInput.pause();
+        // hijackProcessInput.pause();
         await listr.run();
     } catch (ex) {
         console.error(ex);
     } finally {
-        hijackProcessInput.resume();
+        // hijackProcessInput.resume();
         process.exit(0);
     }
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.5"></a>
+## [1.4.5](https://github.com/vivaxy/gacp/compare/v1.4.4...v1.4.5) (2016-12-21)
+
+
+### Reverts
+
+* :bug:revert fix when user presses key, console output gets wired, preserve user input ([5dd304c](https://github.com/vivaxy/gacp/commit/5dd304c))
+
+
+
 <a name="1.4.4"></a>
 ## [1.4.4](https://github.com/vivaxy/gacp/compare/v1.4.3...v1.4.4) (2016-12-04)
 

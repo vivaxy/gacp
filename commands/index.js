@@ -19,15 +19,16 @@ import prompt from '../lib/prompt';
 
 const prepare = async() => {
 
-    const gitClean = await getClean();
-
-    const needGitAddOrCommit = !gitClean;
     const isGitRepository = await checkGitRepository();
 
     if (!isGitRepository) {
         console.error(`not a git repository`);
         process.exit(1);
     }
+
+    const gitClean = await getClean();
+    const needGitAddOrCommit = !gitClean;
+
     if (!needGitAddOrCommit) {
         await gitFetch();
         const needPush = await checkNeedPush();

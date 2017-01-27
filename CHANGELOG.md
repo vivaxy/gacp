@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.6"></a>
+## [1.4.6](https://github.com/vivaxy/gacp/compare/v1.4.5...v1.4.6) (2017-01-27)
+
+
+### Bug Fixes
+
+* **checkGitRepository:** :bug:fix not a git repository ([8d37c6b](https://github.com/vivaxy/gacp/commit/8d37c6b))
+* **push:** :bug:Fix push with tags ([0f06702](https://github.com/vivaxy/gacp/commit/0f06702))
+
+
+
 <a name="1.4.5"></a>
 ## [1.4.5](https://github.com/vivaxy/gacp/compare/v1.4.4...v1.4.5) (2016-12-21)
 

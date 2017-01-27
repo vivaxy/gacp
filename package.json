@@ -45,6 +45,6 @@
     "standard-version": "^3.0.0"
   },
   "scripts": {
-    "release": "standard-version"
+    "release": "standard-version && git push --follow-tags && npm publish"
   }
 }

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/vivaxy/gacp/compare/v1.4.6...v1.5.0) (2017-02-04)
+
+
+### Features
+
+* :sparkles:Update gitmoji list; Use yarn; Sort gitmoji by usage count ([022b38e](https://github.com/vivaxy/gacp/commit/022b38e))
+
+
+
 <a name="1.4.6"></a>
 ## [1.4.6](https://github.com/vivaxy/gacp/compare/v1.4.5...v1.4.6) (2017-01-27)
 

@@ -164,7 +164,7 @@
             "emoji": "🔨",
             "entity": "&#128736;",
             "code": ":hammer:",
-            "description": "Heavy refactoring.",
+            "description": "Refactoring code.",
             "name": "hammer"
         },
         {
@@ -215,6 +215,62 @@
             "code": ":hankey:",
             "description": "Writing bad code that needs to be improved.",
             "name": "hankey"
+        },
+        {
+            "emoji": "⏪",
+            "entity": "&#9194;",
+            "code": ":rewind:",
+            "description": "Reverting changes.",
+            "name": "rewind"
+        },
+        {
+            "emoji": "🔀",
+            "entity": "&#128256;",
+            "code": ":twisted_rightwards_arrows:",
+            "description": "Merging branches.",
+            "name": "twisted-rightwards-arrows"
+        },
+        {
+            "emoji": "📦",
+            "entity": "&#1F4E6;",
+            "code": ":package:",
+            "description": "Updating compiled files or packages.",
+            "name": "package"
+        },
+        {
+            "emoji": "👽",
+            "entity": "&#1F47D;",
+            "code": ":alien:",
+            "description": "Updating code due to external API changes.",
+            "name": "alien"
+        },
+        {
+            "emoji": "🚚",
+            "entity": "&#1F69A;",
+            "code": ":truck:",
+            "description": "Moving or renaming files.",
+            "name": "truck"
+        },
+        {
+            "emoji": "📄",
+            "entity": "&#1F4C4;",
+            "code": ":page_facing_up:",
+            "description": "Adding or updating license.",
+            "name": "page-facing-up"
+        },
+        {
+            "emoji": "💥",
+            "entity": "&#x1f4a5;",
+            "code": ":boom:",
+            "description": "Introducing breaking changes.",
+            "name": "boom"
+        },
+        {
+            "emoji": "🍱",
+            "entity": "&#1F371",
+            "code": ":bento:",
+            "description": "Adding or updating assets.",
+            "name": "bento"
         }
     ]
 }

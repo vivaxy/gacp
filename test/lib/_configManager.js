@@ -3,6 +3,6 @@
  * @author vivaxy
  */
 
-import { readListByStatOrder } from '../../lib/configManager';
+import { readListByStatOrder } from '../../lib/gitmojiConfigManager';
 
 console.log(readListByStatOrder());

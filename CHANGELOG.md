@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.1"></a>
+## [1.5.1](https://github.com/vivaxy/gacp/compare/v1.5.0...v1.5.1) (2017-02-05)
+
+
+### Bug Fixes
+
+* **configManager:** :bug:Fix gitmoji stat order ([a21ffbe](https://github.com/vivaxy/gacp/commit/a21ffbe))
+
+
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/vivaxy/gacp/compare/v1.4.6...v1.5.0) (2017-02-04)
 

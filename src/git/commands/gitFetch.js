@@ -3,7 +3,7 @@
  * @author vivaxy
  */
 
-import execa from '../../lib/wrappedExeca';
+import execa from 'execa';
 
 export default async() => {
     return await execa(`git`, [`fetch`, `-p`]);

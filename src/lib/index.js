@@ -3,6 +3,8 @@
  * @author vivaxy
  */
 
+import 'babel-polyfill';
+
 import yargs from 'yargs';
 import index from '../commands/index';
 
@@ -14,4 +16,6 @@ const configureYargs = () => {
 };
 
 configureYargs();
-index();
+index().catch((ex) => {
+    throw ex;
+});

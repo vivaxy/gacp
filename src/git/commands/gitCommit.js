@@ -3,7 +3,7 @@
  * @author vivaxy
  */
 
-import execa from '../../lib/wrappedExeca';
+import execa from 'execa';
 
 export default async(commitMessage) => {
     return await execa(`git`, [`commit`, `-m`, commitMessage]);

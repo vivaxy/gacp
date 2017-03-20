@@ -3,7 +3,7 @@
  * @author vivaxy
  */
 
-import execa from './wrappedExeca';
+import execa from 'execa';
 
 export default async(file, args) => {
     // here `...args` makes things worse, IDKY

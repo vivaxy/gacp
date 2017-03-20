@@ -4,7 +4,7 @@
  */
 
 import * as configManager from './gitmojiConfigManager';
-import defaultConfig from '../configs/gitmojis.json';
+import defaultConfig from '../configs/gitmojis';
 
 const mapConfigWithStat = (config, statConfig = {}) => {
     const gitmojisWithStat = statConfig.gitmojis || [];

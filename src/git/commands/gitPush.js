@@ -3,7 +3,7 @@
  * @author vivaxy
  */
 
-import execa from '../../lib/wrappedExeca';
+import execa from 'execa';
 
 import getRemote from '../status/getRemote';
 import getBranch from '../status/getBranch';

@@ -42,12 +42,15 @@
     "babel-core": "^6.24.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^3.18.0",
+    "eslint-config-vivaxy": "^0.1.1",
     "glob": "^7.1.1",
     "glob-promise": "^3.1.0",
     "standard-version": "^3.0.0"
   },
   "scripts": {
     "build": "node ./scripts/build.js",
-    "release": "standard-version && git push --follow-tags && npm publish"
+    "release": "standard-version && git push --follow-tags && npm publish",
+    "lint": "eslint ./src"
   }
 }

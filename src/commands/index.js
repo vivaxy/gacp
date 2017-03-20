@@ -18,11 +18,10 @@ import prompt from '../lib/prompt';
 // import hijackProcessInput from '../lib/hijackProcessInput';
 
 const prepare = async() => {
-
     const isGitRepository = await checkGitRepository();
 
     if (!isGitRepository) {
-        console.error(`not a git repository`);
+        console.error('not a git repository');
         process.exit(1);
     }
 
@@ -33,7 +32,7 @@ const prepare = async() => {
         await gitFetch();
         const needPush = await checkNeedPush();
         if (!needPush) {
-            console.error(`nothing to commit or push, working tree clean`);
+            console.error('nothing to commit or push, working tree clean');
             process.exit(1);
         }
     }
@@ -43,7 +42,6 @@ const prepare = async() => {
 };
 
 export default async() => {
-
     const {
         gitClean,
     } = await prepare();
@@ -56,33 +54,36 @@ export default async() => {
 
     const tasks = [
         {
-            title: `git add`,
+            title: 'git add',
             task: gitAdd,
             skip: () => {
                 if (gitClean) {
-                    return `nothing to add, working tree clean`;
+                    return 'nothing to add, working tree clean';
                 }
+                return undefined;
             },
         },
         {
-            title: `git commit`,
+            title: 'git commit',
             task: async() => {
                 return await gitCommit(commitMessage);
             },
             skip: () => {
                 if (gitClean) {
-                    return `nothing to commit, working tree clean`;
+                    return 'nothing to commit, working tree clean';
                 }
+                return undefined;
             },
         },
         {
-            title: `git push`,
+            title: 'git push',
             task: gitPush,
             skip: async() => {
                 const remote = await getRemote();
                 if (!remote) {
-                    return `no tracking remote`;
+                    return 'no tracking remote';
                 }
+                return undefined;
             },
         },
     ];
@@ -99,5 +100,4 @@ export default async() => {
         // hijackProcessInput.resume();
         process.exit(0);
     }
-
 };

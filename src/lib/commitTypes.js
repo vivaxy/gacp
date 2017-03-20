@@ -3,8 +3,9 @@
  * @author vivaxy
  */
 
+import defaultConfig from 'conventional-commit-types'; // eslint-disable-line import/extensions
+
 import * as configManager from './commitTypesConfigManager';
-import defaultConfig from 'conventional-commit-types';
 
 /**
  *  {
@@ -33,8 +34,13 @@ const mapConfigWithStat = (config, statConfig = {}) => {
 };
 
 const hasNewTypes = () => {
-    const {types} = configManager.read();
+    const { types } = configManager.read();
     return Object.keys(defaultConfig.types).length !== Object.keys(types).length;
+};
+
+const useNewTypesConfig = async() => {
+    const currentConfig = configManager.read();
+    await configManager.write(mapConfigWithStat(defaultConfig, currentConfig));
 };
 
 const ensureTypesConfig = async() => {
@@ -47,13 +53,7 @@ const ensureTypesConfig = async() => {
     }
 };
 
-const useNewTypesConfig = async() => {
-    const currentConfig = configManager.read();
-    await configManager.write(mapConfigWithStat(defaultConfig, currentConfig));
-};
-
 export const getCommitTypes = async() => {
-
     await ensureTypesConfig();
 
     const commitTypes = await configManager.readListByStatOrder();
@@ -66,7 +66,7 @@ export const getCommitTypes = async() => {
 };
 
 export const updateTypesStat = async(typeKey) => {
-    const {types} = configManager.read();
+    const { types } = configManager.read();
     types[typeKey].stat++;
     await configManager.write({
         types,

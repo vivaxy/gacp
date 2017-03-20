@@ -12,7 +12,7 @@ import { GACPHOME, GITMOJI_CONFIG_FILE_NAME } from '../configs';
 const userConfigFile = path.join(GACPHOME, GITMOJI_CONFIG_FILE_NAME);
 
 export const read = () => {
-    return require(userConfigFile);
+    return require(userConfigFile); // eslint-disable-line global-require, import/no-dynamic-require
 };
 
 export const write = async(json) => {

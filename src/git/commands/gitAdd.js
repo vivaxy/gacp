@@ -6,5 +6,5 @@
 import execa from 'execa';
 
 export default async() => {
-    return await execa(`git`, [`add`, `.`]);
+    return await execa('git', ['add', '.']);
 };

@@ -12,8 +12,7 @@ export default async(file, args) => {
         stdout,
     } = await execa(file, args);
     if (code === 0) {
-        return stdout.split(`\n`)[0];
-    } else {
-        return null;
+        return stdout.split('\n')[0];
     }
+    return null;
 };

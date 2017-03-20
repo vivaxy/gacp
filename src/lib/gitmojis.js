@@ -10,7 +10,6 @@ const mapConfigWithStat = (config, statConfig = {}) => {
     const gitmojisWithStat = statConfig.gitmojis || [];
     return {
         gitmojis: config.gitmojis.map((item) => {
-
             const findGitmojiWithStat = gitmojisWithStat.find((gitmoji) => {
                 return gitmoji.code === item.code;
             });
@@ -22,12 +21,17 @@ const mapConfigWithStat = (config, statConfig = {}) => {
                 stat,
             };
         }),
-    }
+    };
 };
 
 const hasNewGitmoji = () => {
-    const {gitmojis} = configManager.read();
+    const { gitmojis } = configManager.read();
     return defaultConfig.gitmojis.length !== gitmojis.length;
+};
+
+const addNewGitmoji = async() => {
+    const currentConfig = configManager.read();
+    await configManager.write(mapConfigWithStat(defaultConfig, currentConfig));
 };
 
 const ensureGitmojiConfig = async() => {
@@ -40,17 +44,11 @@ const ensureGitmojiConfig = async() => {
     }
 };
 
-const addNewGitmoji = async() => {
-    const currentConfig = configManager.read();
-    await configManager.write(mapConfigWithStat(defaultConfig, currentConfig));
-};
-
 export const getGitmojis = async() => {
-
     await ensureGitmojiConfig();
 
     const gitmojis = await configManager.readListByStatOrder();
-    const gitmojiList = gitmojis.map(gitmoji => {
+    const gitmojiList = gitmojis.map((gitmoji) => {
         return {
             name: `${gitmoji.emoji}  - ${gitmoji.description}`,
             value: gitmoji.code,
@@ -58,19 +56,23 @@ export const getGitmojis = async() => {
     });
 
     gitmojiList.unshift({
-        name: `none`,
-        value: ``,
+        name: 'none',
+        value: '',
     });
 
     return gitmojiList;
 };
 
-export const updateGitmojisStat = async({code}) => {
-    const {gitmojis} = configManager.read();
-    gitmojis.forEach((gitmoji) => {
+export const updateGitmojisStat = async({ code }) => {
+    const { gitmojis: originalGitmojis } = configManager.read();
+    const gitmojis = originalGitmojis.map((gitmoji) => {
         if (gitmoji.code === code) {
-            gitmoji.stat++;
+            return {
+                ...gitmoji,
+                stat: gitmoji.stat + 1,
+            };
         }
+        return gitmoji;
     });
     await configManager.write({
         gitmojis,

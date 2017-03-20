@@ -11,10 +11,10 @@ import getRemote from './getRemote';
 const hasCommitInShell = async(file, args) => {
     let result = true;
     try {
-        const {code, stdout} = await execa(file, args);
+        const { code, stdout } = await execa(file, args);
         if (code === 0) {
-            const splitResult = stdout.split(`\n\r`);
-            if (splitResult[0] === ``) {
+            const splitResult = stdout.split('\n\r');
+            if (splitResult[0] === '') {
                 result = false;
             }
         }
@@ -35,7 +35,7 @@ export default async() => {
         result = false;
     } else {
         const branch = await getBranch();
-        result = await hasCommitInShell(`git`, [`log`, `${remote}/${branch}..${branch}`, `--pretty=format:%H`]);
+        result = await hasCommitInShell('git', ['log', `${remote}/${branch}..${branch}`, '--pretty=format:%H']);
     }
     return result;
 };

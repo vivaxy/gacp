@@ -6,11 +6,10 @@
 import inquirer from 'inquirer';
 import wrap from 'word-wrap';
 
-import { getCommitTypes, updateTypesStat, } from './commitTypes';
-import { getGitmojis, updateGitmojisStat, } from './gitmojis';
+import { getCommitTypes, updateTypesStat } from './commitTypes';
+import { getGitmojis, updateGitmojisStat } from './gitmojis';
 
 export default async() => {
-
     const typeList = await getCommitTypes();
     const gitmojiList = await getGitmojis();
 
@@ -47,7 +46,7 @@ export default async() => {
             type: 'input',
             name: 'footer',
             message: 'List any breaking changes or issues closed by this change:\n',
-        }
+        },
     ];
 
     const answers = await inquirer.prompt(questions);
@@ -63,7 +62,7 @@ export default async() => {
 
     // parentheses are only needed when a scope is present
     let scope = answers.scope.trim();
-    scope = scope ? `(${scope})` : ``;
+    scope = scope ? `(${scope})` : '';
 
     // Hard limit this line
     let head = `${answers.type}${scope}: ${answers.gitmoji}${answers.subject.trim()}`;
@@ -80,5 +79,4 @@ export default async() => {
     });
 
     return `${head}\n\n${body}\n\n${footer}`;
-
 };

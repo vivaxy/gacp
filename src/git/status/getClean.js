@@ -6,6 +6,6 @@
 import getInfoFromShell from '../../lib/getInfoFromShell';
 
 export default async() => {
-    const statusOutput = await getInfoFromShell(`git`, [`status`, `-s`]);
-    return statusOutput === ``;
+    const statusOutput = await getInfoFromShell('git', ['status', '-s']);
+    return statusOutput === '';
 };

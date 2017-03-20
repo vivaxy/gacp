@@ -6,5 +6,5 @@
 import execa from 'execa';
 
 export default async(commitMessage) => {
-    return await execa(`git`, [`commit`, `-m`, commitMessage]);
+    return await execa('git', ['commit', '-m', commitMessage]);
 };

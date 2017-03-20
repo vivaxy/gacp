@@ -52,8 +52,9 @@
     "standard-version": "^3.0.0"
   },
   "scripts": {
+    "beta": "npm run test && npm run build && npm publish --tag beta",
+    "release": "npm run test && npm run build && standard-version && git push --follow-tags && npm publish",
     "build": "node ./scripts/build.js",
-    "release": "standard-version && git push --follow-tags && npm publish",
     "lint": "eslint ./src",
     "test": "npm run lint && cross-env NODE_ENV=test nyc ava && nyc report --reporter=html && nyc report --reporter=lcov > coverage.lcov"
   },

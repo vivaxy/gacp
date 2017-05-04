@@ -9,7 +9,9 @@
 [![Standard Version][standard-version-image]][standard-version-url]
 [![Codecov][codecov-image]][codecov-url]
 
-git add, commit, push
+Git add, commit, push with conventional-changelog and gitmoji.
+
+![GACP](./assets/images/gacp.gif)
 
 ## Installation
 

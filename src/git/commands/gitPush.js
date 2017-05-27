@@ -19,10 +19,8 @@ export default async() => {
 
     const remote = await getRemote();
 
-    const results = await execa('git', ['push', remote, branch, '--follow-tag'], { stdio: 'inherit' });
-    if (results.contains('Enter passphrase for key')) {
-        throw new Error('Enter passphrase for key');
-    }
-    console.log(results);
-    return results;
+    return await execa('git', ['push', remote, branch, '--follow-tag'], {
+        stdout: 'inherit',
+        stdin: 'inherit'
+    });
 };

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/vivaxy/gacp/compare/v1.6.1...v1.7.0) (2017-05-27)
+
+
+### Features
+
+* :sparkles: ([9a24f5c](https://github.com/vivaxy/gacp/commit/9a24f5c))
+* :sparkles:Prompt when password needed ([a19c09e](https://github.com/vivaxy/gacp/commit/a19c09e))
+* **listr:** :sparkles:Switching to VerboseRenderer ([ee4e91a](https://github.com/vivaxy/gacp/commit/ee4e91a))
+
+
+
 <a name="1.6.1"></a>
 ## [1.6.1](https://github.com/vivaxy/gacp/compare/v1.6.1-0...v1.6.1) (2017-03-20)
 

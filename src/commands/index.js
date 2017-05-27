@@ -4,6 +4,7 @@
  */
 
 import Listr from 'listr';
+import VerboseRenderer from 'listr-verbose-renderer';
 
 import checkGitRepository from '../git/status/checkGitRepository';
 import getClean from '../git/status/getClean';
@@ -88,7 +89,9 @@ export default async() => {
         },
     ];
 
-    const listr = new Listr(tasks);
+    const listr = new Listr(tasks, {
+        renderer: VerboseRenderer,
+    });
 
     try {
         // https://github.com/SamVerschueren/listr/issues/38

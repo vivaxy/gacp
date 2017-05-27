@@ -4,7 +4,7 @@
  */
 
 import path from 'path';
-import fsp from 'fs-promise';
+import fse from 'fs-extra';
 
 import fileExists from './fileExists';
 import { GACPHOME, GITMOJI_CONFIG_FILE_NAME } from '../configs';
@@ -16,7 +16,7 @@ export const read = () => {
 };
 
 export const write = async(json) => {
-    return await fsp.outputJson(userConfigFile, json);
+    return await fse.outputJson(userConfigFile, json);
 };
 
 export const exist = async() => {

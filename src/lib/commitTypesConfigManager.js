@@ -4,7 +4,7 @@
  */
 
 import path from 'path';
-import fsp from 'fs-promise';
+import fse from 'fs-extra';
 import rightPad from 'right-pad';
 
 import fileExists from './fileExists';
@@ -17,7 +17,7 @@ export const read = () => {
 };
 
 export const write = async(json) => {
-    return await fsp.outputJson(userConfigFile, json);
+    return await fse.outputJson(userConfigFile, json);
 };
 
 export const exist = async() => {

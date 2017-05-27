@@ -19,8 +19,5 @@ export default async() => {
 
     const remote = await getRemote();
 
-    return await execa('git', ['push', remote, branch, '--follow-tag'], {
-        stdout: 'inherit',
-        stdin: 'inherit'
-    });
+    return await execa('git', ['push', remote, branch, '--follow-tag']);
 };

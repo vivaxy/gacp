@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.0"></a>
+# [1.8.0](https://github.com/vivaxy/gacp/compare/v1.7.0...v1.8.0) (2017-05-31)
+
+
+### Features
+
+* **update-notifier:** :sparkles:Add `update-notifier` ([545f95a](https://github.com/vivaxy/gacp/commit/545f95a))
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://github.com/vivaxy/gacp/compare/v1.6.1...v1.7.0) (2017-05-27)
 

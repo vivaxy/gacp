@@ -4,8 +4,10 @@
  */
 
 import 'babel-polyfill';
-
 import yargs from 'yargs';
+import updateNotifier from 'update-notifier';
+
+import pkg from '../../package.json';
 import index from '../commands/index';
 
 const configureYargs = () => {
@@ -16,6 +18,7 @@ const configureYargs = () => {
 };
 
 configureYargs();
+updateNotifier({ pkg }).notify();
 index().catch((ex) => {
     throw ex;
 });

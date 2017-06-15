@@ -27,11 +27,11 @@ Git add, commit, push with conventional-changelog and gitmoji.
 
 [Change log](CHANGELOG.md)
 
-## Contribution
+## Contributing
 
-Publish by `yarn run release`. This will bump version by git commit messages, update changelog, push changes to git remote, and publish to npm.
+[Contributing](CONTRIBUTING.md)
 
-## Related
+## Prior Art
 
 - [gcmt](https://github.com/vivaxy/gcmt)
 - [commitizen](https://github.com/commitizen/cz-cli)

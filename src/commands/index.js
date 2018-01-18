@@ -37,15 +37,11 @@ const prepare = async() => {
             process.exit(1);
         }
     }
-    return {
-        gitClean,
-    };
+    return { gitClean };
 };
 
 export default async() => {
-    const {
-        gitClean,
-    } = await prepare();
+    const { gitClean } = await prepare();
 
     let commitMessage;
 

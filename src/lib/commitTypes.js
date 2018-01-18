@@ -23,14 +23,9 @@ const mapConfigWithStat = (config, statConfig = {}) => {
     Object.keys(config.types).forEach((typeKey) => {
         const typeInfo = config.types[typeKey];
         const typeInfoWithStat = typesWithStat[typeKey];
-        resultTypes[typeKey] = {
-            ...typeInfo,
-            stat: typeInfoWithStat ? typeInfoWithStat.stat : 0,
-        };
+        resultTypes[typeKey] = { ...typeInfo, stat: typeInfoWithStat ? typeInfoWithStat.stat : 0 };
     });
-    return {
-        types: resultTypes,
-    };
+    return { types: resultTypes };
 };
 
 const hasNewTypes = () => {
@@ -58,17 +53,13 @@ export const getCommitTypes = async() => {
 
     const commitTypes = await configManager.readListByStatOrder();
     return commitTypes.map((type) => {
-        return {
-            name: type.name,
-            value: type.value,
-        };
+        const { name, value } = type;
+        return { name, value };
     });
 };
 
 export const updateTypesStat = async(typeKey) => {
     const { types } = configManager.read();
     types[typeKey].stat++;
-    await configManager.write({
-        types,
-    });
+    await configManager.write({ types });
 };

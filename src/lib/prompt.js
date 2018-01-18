@@ -53,12 +53,7 @@ export default async() => {
 
     const maxLineWidth = 100;
 
-    const wrapOptions = {
-        trim: true,
-        newline: '\n',
-        indent: '',
-        width: maxLineWidth,
-    };
+    const wrapOptions = { trim: true, newline: '\n', indent: '', width: maxLineWidth };
 
     // parentheses are only needed when a scope is present
     let scope = answers.scope.trim();
@@ -74,9 +69,7 @@ export default async() => {
 
     await updateTypesStat(answers.type);
 
-    await updateGitmojisStat({
-        code: answers.gitmoji,
-    });
+    await updateGitmojisStat({ code: answers.gitmoji });
 
     return `${head}\n\n${body}\n\n${footer}`;
 };

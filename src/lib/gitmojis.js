@@ -16,10 +16,7 @@ const mapConfigWithStat = (config, statConfig = {}) => {
 
             const stat = findGitmojiWithStat ? findGitmojiWithStat.stat : 0;
 
-            return {
-                ...item,
-                stat,
-            };
+            return { ...item, stat };
         }),
     };
 };
@@ -55,10 +52,7 @@ export const getGitmojis = async() => {
         };
     });
 
-    gitmojiList.unshift({
-        name: 'none',
-        value: '',
-    });
+    gitmojiList.unshift({ name: 'none', value: '' });
 
     return gitmojiList;
 };
@@ -67,14 +61,9 @@ export const updateGitmojisStat = async({ code }) => {
     const { gitmojis: originalGitmojis } = configManager.read();
     const gitmojis = originalGitmojis.map((gitmoji) => {
         if (gitmoji.code === code) {
-            return {
-                ...gitmoji,
-                stat: gitmoji.stat + 1,
-            };
+            return { ...gitmoji, stat: gitmoji.stat + 1 };
         }
         return gitmoji;
     });
-    await configManager.write({
-        gitmojis,
-    });
+    await configManager.write({ gitmojis });
 };

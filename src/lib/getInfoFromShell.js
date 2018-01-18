@@ -7,10 +7,7 @@ import execa from 'execa';
 
 export default async(file, args) => {
     // here `...args` makes things worse, IDKY
-    const {
-        code,
-        stdout,
-    } = await execa(file, args);
+    const { code, stdout } = await execa(file, args);
     if (code === 0) {
         return stdout.split('\n')[0];
     }

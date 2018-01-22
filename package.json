@@ -54,7 +54,7 @@
   },
   "scripts": {
     "beta": "npm run test && npm run build && npm publish --tag beta",
-    "release": "npm run test && npm run build && standard-version && git push --follow-tags && npm publish",
+    "release": "npm run test && npm run build && standard-version && git push --follow-tags && npm publish --registry=https://registry.npmjs.org/",
     "build": "node ./scripts/build.js",
     "lint": "eslint ./src",
     "test": "npm run lint && cross-env NODE_ENV=test nyc ava && nyc report --reporter=html && nyc report --reporter=lcov > coverage.lcov"

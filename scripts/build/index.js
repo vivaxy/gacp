@@ -4,7 +4,9 @@
  */
 
 import babel from './babel';
+import copy from './copy';
 
-babel().catch((ex) => {
-    throw ex;
-});
+(async() => {
+    await babel();
+    await copy();
+})();

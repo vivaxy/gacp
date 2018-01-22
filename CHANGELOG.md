@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.0"></a>
+# [1.9.0](https://github.com/vivaxy/gacp/compare/v1.8.0...v1.9.0) (2018-01-22)
+
+
+### Features
+
+* **gtimojis:** :sparkles:Update gitmojis ([58ee25b](https://github.com/vivaxy/gacp/commit/58ee25b))
+
+
+
 <a name="1.8.0"></a>
 # [1.8.0](https://github.com/vivaxy/gacp/compare/v1.7.0...v1.8.0) (2017-05-31)
 

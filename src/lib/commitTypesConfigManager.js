@@ -25,15 +25,13 @@ export const exist = async() => {
 };
 
 const formatTypeChoices = (map) => {
-    let length = 0;
-
     const keys = Object.keys(map);
-
-    keys.forEach((item) => {
-        if (item.length > length) {
-            length = item.length;
+    const length = keys.reduce((len, item) => {
+        if (item.length > len) {
+            return item.length;
         }
-    });
+        return len;
+    }, 0);
 
     return keys.map((key) => {
         return {

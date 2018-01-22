@@ -85,9 +85,7 @@ export default async() => {
         },
     ];
 
-    const listr = new Listr(tasks, {
-        renderer: VerboseRenderer,
-    });
+    const listr = new Listr(tasks, { renderer: VerboseRenderer });
 
     try {
         // https://github.com/SamVerschueren/listr/issues/38

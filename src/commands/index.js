@@ -18,7 +18,7 @@ import gitFetch from '../git/commands/gitFetch';
 import prompt from '../lib/prompt';
 // import hijackProcessInput from '../lib/hijackProcessInput';
 
-const prepare = async() => {
+const prepare = async () => {
     const isGitRepository = await checkGitRepository();
 
     if (!isGitRepository) {
@@ -40,7 +40,7 @@ const prepare = async() => {
     return { gitClean };
 };
 
-export default async() => {
+export default async () => {
     const { gitClean } = await prepare();
 
     let commitMessage;
@@ -58,11 +58,11 @@ export default async() => {
                     return 'nothing to add, working tree clean';
                 }
                 return undefined;
-            },
+            }
         },
         {
             title: 'git commit',
-            task: async() => {
+            task: async () => {
                 return await gitCommit(commitMessage);
             },
             skip: () => {
@@ -70,19 +70,19 @@ export default async() => {
                     return 'nothing to commit, working tree clean';
                 }
                 return undefined;
-            },
+            }
         },
         {
             title: 'git push',
             task: gitPush,
-            skip: async() => {
+            skip: async () => {
                 const remote = await getRemote();
                 if (!remote) {
                     return 'no tracking remote';
                 }
                 return undefined;
-            },
-        },
+            }
+        }
     ];
 
     const listr = new Listr(tasks, { renderer: VerboseRenderer });

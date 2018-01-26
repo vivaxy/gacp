@@ -9,7 +9,7 @@ import getRemote from '../status/getRemote';
 import getBranch from '../status/getBranch';
 import checkRemoteDiffer from '../status/checkRemoteDiffer';
 
-export default async() => {
+export default async () => {
     const branch = await getBranch();
 
     const remoteDiffer = await checkRemoteDiffer(branch);

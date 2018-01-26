@@ -8,7 +8,7 @@ import execa from 'execa';
 import getBranch from './getBranch';
 import getRemote from './getRemote';
 
-const hasCommitInShell = async(file, args) => {
+const hasCommitInShell = async (file, args) => {
     let result = true;
     try {
         const { code, stdout } = await execa(file, args);
@@ -28,14 +28,18 @@ const hasCommitInShell = async(file, args) => {
     return result;
 };
 
-export default async() => {
+export default async () => {
     let result = true;
     const remote = await getRemote();
     if (!remote) {
         result = false;
     } else {
         const branch = await getBranch();
-        result = await hasCommitInShell('git', ['log', `${remote}/${branch}..${branch}`, '--pretty=format:%H']);
+        result = await hasCommitInShell('git', [
+            'log',
+            `${remote}/${branch}..${branch}`,
+            '--pretty=format:%H'
+        ]);
     }
     return result;
 };

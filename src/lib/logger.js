@@ -15,5 +15,5 @@ export const error = message => {
 };
 
 export const command = command => {
-    console.log(chalk.blue(logSymbols.info), chalk.yellow('>'), command);
+    console.log('\n', chalk.yellow('>'), command, '\n');
 };

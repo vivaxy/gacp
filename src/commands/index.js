@@ -12,6 +12,8 @@ import gitCommit from '../git/commands/gitCommit';
 import gitPush from '../git/commands/gitPush';
 import gitFetch from '../git/commands/gitFetch';
 import prompt from '../lib/prompt';
+import GacpError from '../errors/GacpError';
+import * as errorTypes from '../configs/errorTypes';
 
 const getNow = () => {
     return new Date().getTime();
@@ -21,8 +23,7 @@ const prepare = async () => {
     const isGitRepository = await checkGitRepository();
 
     if (!isGitRepository) {
-        logger.error('Not a git repository.');
-        process.exit(1);
+        throw new GacpError('Not a git repository.');
     }
 
     const gitClean = await getClean();
@@ -32,8 +33,9 @@ const prepare = async () => {
         await gitFetch();
         const needPush = await checkNeedPush();
         if (!needPush) {
-            logger.error('Nothing to commit or push, working tree clean.');
-            process.exit(1);
+            throw new GacpError(
+                'Nothing to commit or push, working tree clean.'
+            );
         }
     }
     return { needGitAddOrCommit };
@@ -62,8 +64,11 @@ export default async () => {
         logger.success(`Done in ${(endTime - startTime) / 1000}s`);
         process.exit(0);
     } catch (ex) {
-        logger.info(ex.stack);
-        logger.error(ex.message);
+        if (ex.type === errorTypes.GACP) {
+            logger.gacpError(ex.message);
+        } else {
+            logger.uncaughtError(ex);
+        }
         process.exit(1);
     }
 };

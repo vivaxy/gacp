@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/vivaxy/gacp/compare/v1.9.2...v2.0.0) (2018-01-29)
+
+
+### Features
+
+* **console:** :sparkles:Update console output, show more details. ([f7fb480](https://github.com/vivaxy/gacp/commit/f7fb480))
+* **prettier:** :sparkles:Replace eslint with prettier ([f6a131c](https://github.com/vivaxy/gacp/commit/f6a131c))
+
+
+
 <a name="1.9.2"></a>
 ## [1.9.2](https://github.com/vivaxy/gacp/compare/v1.9.1...v1.9.2) (2018-01-22)
 

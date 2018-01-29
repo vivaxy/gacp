@@ -3,8 +3,10 @@
  * @author vivaxy
  */
 
-import execa from 'execa';
+import execa from '@vivaxy/execa-process-log';
+import * as logger from '../../lib/logger';
 
 export default async () => {
+    logger.command(`git add .`);
     return await execa('git', ['add', '.']);
 };

@@ -3,26 +3,21 @@
  * @author vivaxy
  */
 
-import Listr from 'listr';
-import VerboseRenderer from 'listr-verbose-renderer';
-
 import checkGitRepository from '../git/status/checkGitRepository';
 import getClean from '../git/status/getClean';
 import checkNeedPush from '../git/status/checkNeedPush';
-import getRemote from '../git/status/getRemote';
-import * as console from '../lib/console';
+import * as logger from '../lib/logger';
 import gitAdd from '../git/commands/gitAdd';
 import gitCommit from '../git/commands/gitCommit';
 import gitPush from '../git/commands/gitPush';
 import gitFetch from '../git/commands/gitFetch';
 import prompt from '../lib/prompt';
-// import hijackProcessInput from '../lib/hijackProcessInput';
 
 const prepare = async () => {
     const isGitRepository = await checkGitRepository();
 
     if (!isGitRepository) {
-        console.error('not a git repository');
+        logger.error('Not a git repository.');
         process.exit(1);
     }
 
@@ -33,68 +28,35 @@ const prepare = async () => {
         await gitFetch();
         const needPush = await checkNeedPush();
         if (!needPush) {
-            console.error('nothing to commit or push, working tree clean');
+            logger.error('Nothing to commit or push, working tree clean.');
             process.exit(1);
         }
     }
-    return { gitClean };
+    return { needGitAddOrCommit };
+};
+
+const runTasks = async () => {
+    const { needGitAddOrCommit } = await prepare();
+
+    if (!needGitAddOrCommit) {
+        logger.info('Nothing to add, working tree clean.');
+        logger.info('Nothing to commit, working tree clean.');
+        return await gitPush();
+    }
+
+    const commitMessage = await prompt();
+    await gitAdd();
+    await gitCommit(commitMessage);
+    return await gitPush();
 };
 
 export default async () => {
-    const { gitClean } = await prepare();
-
-    let commitMessage;
-
-    if (!gitClean) {
-        commitMessage = await prompt();
-    }
-
-    const tasks = [
-        {
-            title: 'git add',
-            task: gitAdd,
-            skip: () => {
-                if (gitClean) {
-                    return 'nothing to add, working tree clean';
-                }
-                return undefined;
-            }
-        },
-        {
-            title: 'git commit',
-            task: async () => {
-                return await gitCommit(commitMessage);
-            },
-            skip: () => {
-                if (gitClean) {
-                    return 'nothing to commit, working tree clean';
-                }
-                return undefined;
-            }
-        },
-        {
-            title: 'git push',
-            task: gitPush,
-            skip: async () => {
-                const remote = await getRemote();
-                if (!remote) {
-                    return 'no tracking remote';
-                }
-                return undefined;
-            }
-        }
-    ];
-
-    const listr = new Listr(tasks, { renderer: VerboseRenderer });
-
     try {
-        // https://github.com/SamVerschueren/listr/issues/38
-        // hijackProcessInput.pause();
-        await listr.run();
-    } catch (ex) {
-        console.error(ex);
-    } finally {
-        // hijackProcessInput.resume();
+        await runTasks();
         process.exit(0);
+    } catch (ex) {
+        logger.info(ex.stack);
+        logger.error(ex.message);
+        process.exit(1);
     }
 };

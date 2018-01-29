@@ -13,6 +13,10 @@ import gitPush from '../git/commands/gitPush';
 import gitFetch from '../git/commands/gitFetch';
 import prompt from '../lib/prompt';
 
+const getNow = () => {
+    return new Date().getTime();
+};
+
 const prepare = async () => {
     const isGitRepository = await checkGitRepository();
 
@@ -52,7 +56,10 @@ const runTasks = async () => {
 
 export default async () => {
     try {
+        const startTime = getNow();
         await runTasks();
+        const endTime = getNow();
+        logger.success(`Done in ${(endTime - startTime) / 1000}s`);
         process.exit(0);
     } catch (ex) {
         logger.info(ex.stack);

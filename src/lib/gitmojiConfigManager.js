@@ -15,11 +15,11 @@ export const read = () => {
     return require(userConfigFile); // eslint-disable-line global-require, import/no-dynamic-require
 };
 
-export const write = async(json) => {
+export const write = async json => {
     return await fse.outputJson(userConfigFile, json);
 };
 
-export const exist = async() => {
+export const exist = async () => {
     return await fileExists(userConfigFile);
 };
 

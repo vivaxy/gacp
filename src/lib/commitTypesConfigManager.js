@@ -16,15 +16,15 @@ export const read = () => {
     return require(userConfigFile); // eslint-disable-line global-require, import/no-dynamic-require
 };
 
-export const write = async(json) => {
+export const write = async json => {
     return await fse.outputJson(userConfigFile, json);
 };
 
-export const exist = async() => {
+export const exist = async () => {
     return await fileExists(userConfigFile);
 };
 
-const formatTypeChoices = (map) => {
+const formatTypeChoices = map => {
     const keys = Object.keys(map);
     const length = keys.reduce((len, item) => {
         if (item.length > len) {
@@ -33,11 +33,11 @@ const formatTypeChoices = (map) => {
         return len;
     }, 0);
 
-    return keys.map((key) => {
+    return keys.map(key => {
         return {
             name: `${rightPad(`${key}:`, length)} ${map[key].description}`,
             value: key,
-            stat: map[key].stat,
+            stat: map[key].stat
         };
     });
 };

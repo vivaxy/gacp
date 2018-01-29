@@ -5,7 +5,7 @@
 
 import execa from 'execa';
 
-export default async(file, args) => {
+export default async (file, args) => {
     // here `...args` makes things worse, IDKY
     const { code, stdout } = await execa(file, args);
     if (code === 0) {

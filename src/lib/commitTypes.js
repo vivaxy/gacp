@@ -20,25 +20,30 @@ import * as configManager from './commitTypesConfigManager';
 const mapConfigWithStat = (config, statConfig = {}) => {
     const typesWithStat = statConfig.types || {};
     const resultTypes = {};
-    Object.keys(config.types).forEach((typeKey) => {
+    Object.keys(config.types).forEach(typeKey => {
         const typeInfo = config.types[typeKey];
         const typeInfoWithStat = typesWithStat[typeKey];
-        resultTypes[typeKey] = { ...typeInfo, stat: typeInfoWithStat ? typeInfoWithStat.stat : 0 };
+        resultTypes[typeKey] = {
+            ...typeInfo,
+            stat: typeInfoWithStat ? typeInfoWithStat.stat : 0
+        };
     });
     return { types: resultTypes };
 };
 
 const hasNewTypes = () => {
     const { types } = configManager.read();
-    return Object.keys(defaultConfig.types).length !== Object.keys(types).length;
+    return (
+        Object.keys(defaultConfig.types).length !== Object.keys(types).length
+    );
 };
 
-const useNewTypesConfig = async() => {
+const useNewTypesConfig = async () => {
     const currentConfig = configManager.read();
     await configManager.write(mapConfigWithStat(defaultConfig, currentConfig));
 };
 
-const ensureTypesConfig = async() => {
+const ensureTypesConfig = async () => {
     if (!await configManager.exist()) {
         // map config with `stat: 0`
         await configManager.write(mapConfigWithStat(defaultConfig));
@@ -48,17 +53,17 @@ const ensureTypesConfig = async() => {
     }
 };
 
-export const getCommitTypes = async() => {
+export const getCommitTypes = async () => {
     await ensureTypesConfig();
 
     const commitTypes = await configManager.readListByStatOrder();
-    return commitTypes.map((type) => {
+    return commitTypes.map(type => {
         const { name, value } = type;
         return { name, value };
     });
 };
 
-export const updateTypesStat = async(typeKey) => {
+export const updateTypesStat = async typeKey => {
     const { types } = configManager.read();
     types[typeKey].stat++;
     await configManager.write({ types });

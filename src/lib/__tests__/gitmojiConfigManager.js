@@ -4,9 +4,9 @@
  */
 
 import test from 'ava';
-import * as gitmojiConfigManager from '../../src/lib/gitmojiConfigManager';
+import * as gitmojiConfigManager from '../gitmojiConfigManager';
 
-test('config should has correct exports', (t) => {
+test('config should has correct exports', t => {
     t.true(typeof gitmojiConfigManager.read === 'function');
     t.true(typeof gitmojiConfigManager.write === 'function');
     t.true(typeof gitmojiConfigManager.exist === 'function');

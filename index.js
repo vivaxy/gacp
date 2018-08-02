@@ -5,4 +5,4 @@
  * @author vivaxy
  */
 
-require('./build/lib/index');
+require('./lib/index.js');

@@ -7,9 +7,8 @@
     "gacp": "index.js"
   },
   "scripts": {
-    "beta": "npm run test && npm run build && npm publish --registry=https://registry.npmjs.org/ --tag beta",
-    "release": "npm run test && npm run build && standard-version && git push --follow-tags && npm publish --registry=https://registry.npmjs.org/",
-    "build": "node ./scripts/build.js",
+    "beta": "npm run test && npm publish --registry=https://registry.npmjs.org/ --tag beta",
+    "release": "npm run test && standard-version && git push --follow-tags && npm publish --registry=https://registry.npmjs.org/",
     "test": "cross-env NODE_ENV=test nyc ava && nyc report --reporter=html && nyc report --reporter=lcov > coverage.lcov",
     "precommit": "lint-staged"
   },

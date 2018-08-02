@@ -7,6 +7,6 @@ import execa from '@vivaxy/execa-process-log';
 import * as logger from '../../lib/logger';
 
 export default async commitMessage => {
-    logger.command(`git commit -m ${commitMessage}`);
-    return await execa('git', ['commit', '-m', commitMessage]);
+  logger.command(`git commit -m ${commitMessage}`);
+  return await execa('git', ['commit', '-m', commitMessage]);
 };

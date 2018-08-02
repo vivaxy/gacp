@@ -6,8 +6,8 @@
 import * as errorTypes from '../configs/errorTypes';
 
 export default class GacpError extends Error {
-    constructor(message, fileName, lineNumber) {
-        super(message, fileName, lineNumber);
-        this.type = errorTypes.GACP;
-    }
+  constructor(message, fileName, lineNumber) {
+    super(message, fileName, lineNumber);
+    this.type = errorTypes.GACP;
+  }
 }

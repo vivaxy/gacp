@@ -8,5 +8,5 @@ import babelFolder from '@vivaxy/babel-folder';
 import { SOURCE_PATH, BUILD_PATH } from '../config';
 
 export default async () => {
-    return await babelFolder(SOURCE_PATH, BUILD_PATH);
+  return await babelFolder(SOURCE_PATH, BUILD_PATH);
 };

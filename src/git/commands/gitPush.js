@@ -12,17 +12,17 @@ import * as logger from '../../lib/logger';
 import GacpError from '../../errors/GacpError';
 
 export default async () => {
-    const branch = await getBranch();
+  const branch = await getBranch();
 
-    const remoteDiffer = await checkRemoteDiffer(branch);
-    if (remoteDiffer) {
-        throw new GacpError('Remote differ, please pull changes.');
-    }
+  const remoteDiffer = await checkRemoteDiffer(branch);
+  if (remoteDiffer) {
+    throw new GacpError('Remote differ, please pull changes.');
+  }
 
-    const remote = await getRemote();
-    if (!remote) {
-        throw new GacpError('No tracking remote.');
-    }
-    logger.command(`git push ${remote} ${branch} --follow-tag`);
-    return await execa('git', ['push', remote, branch, '--follow-tag']);
+  const remote = await getRemote();
+  if (!remote) {
+    throw new GacpError('No tracking remote.');
+  }
+  logger.command(`git push ${remote} ${branch} --follow-tag`);
+  return await execa('git', ['push', remote, branch, '--follow-tag']);
 };

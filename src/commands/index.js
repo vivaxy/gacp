@@ -16,59 +16,57 @@ import GacpError from '../errors/GacpError';
 import * as errorTypes from '../configs/errorTypes';
 
 const getNow = () => {
-    return new Date().getTime();
+  return new Date().getTime();
 };
 
 const prepare = async () => {
-    const isGitRepository = await checkGitRepository();
+  const isGitRepository = await checkGitRepository();
 
-    if (!isGitRepository) {
-        throw new GacpError('Not a git repository.');
+  if (!isGitRepository) {
+    throw new GacpError('Not a git repository.');
+  }
+
+  const gitClean = await getClean();
+  const needGitAddOrCommit = !gitClean;
+
+  if (!needGitAddOrCommit) {
+    await gitFetch();
+    const needPush = await checkNeedPush();
+    if (!needPush) {
+      throw new GacpError('Nothing to commit or push, working tree clean.');
     }
-
-    const gitClean = await getClean();
-    const needGitAddOrCommit = !gitClean;
-
-    if (!needGitAddOrCommit) {
-        await gitFetch();
-        const needPush = await checkNeedPush();
-        if (!needPush) {
-            throw new GacpError(
-                'Nothing to commit or push, working tree clean.'
-            );
-        }
-    }
-    return { needGitAddOrCommit };
+  }
+  return { needGitAddOrCommit };
 };
 
 const runTasks = async () => {
-    const { needGitAddOrCommit } = await prepare();
+  const { needGitAddOrCommit } = await prepare();
 
-    if (!needGitAddOrCommit) {
-        logger.info('Nothing to add, working tree clean.');
-        logger.info('Nothing to commit, working tree clean.');
-        return await gitPush();
-    }
-
-    const commitMessage = await prompt();
-    await gitAdd();
-    await gitCommit(commitMessage);
+  if (!needGitAddOrCommit) {
+    logger.info('Nothing to add, working tree clean.');
+    logger.info('Nothing to commit, working tree clean.');
     return await gitPush();
+  }
+
+  const commitMessage = await prompt();
+  await gitAdd();
+  await gitCommit(commitMessage);
+  return await gitPush();
 };
 
 export default async () => {
-    try {
-        const startTime = getNow();
-        await runTasks();
-        const endTime = getNow();
-        logger.success(`Done in ${(endTime - startTime) / 1000}s`);
-        process.exit(0);
-    } catch (ex) {
-        if (ex.type === errorTypes.GACP) {
-            logger.gacpError(ex.message);
-        } else {
-            logger.uncaughtError(ex);
-        }
-        process.exit(1);
+  try {
+    const startTime = getNow();
+    await runTasks();
+    const endTime = getNow();
+    logger.success(`Done in ${(endTime - startTime) / 1000}s`);
+    process.exit(0);
+  } catch (ex) {
+    if (ex.type === errorTypes.GACP) {
+      logger.gacpError(ex.message);
+    } else {
+      logger.uncaughtError(ex);
     }
+    process.exit(1);
+  }
 };

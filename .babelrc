@@ -1,11 +1,11 @@
 {
-    "presets": [
-        "es2015",
-        "stage-0"
-    ],
-    "env": {
-        "test": {
-            "sourceMaps": "inline"
-        }
+  "presets": [
+    "es2015",
+    "stage-0"
+  ],
+  "env": {
+    "test": {
+      "sourceMaps": "inline"
     }
+  }
 }

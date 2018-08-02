@@ -6,5 +6,5 @@
 import getInfoFromShell from '../../lib/getInfoFromShell';
 
 export default async () => {
-    return await getInfoFromShell('git', ['remote']);
+  return await getInfoFromShell('git', ['remote']);
 };

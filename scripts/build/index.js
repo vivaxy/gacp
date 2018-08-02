@@ -7,6 +7,6 @@ import babel from './babel';
 import copy from './copy';
 
 (async () => {
-    await babel();
-    await copy();
+  await babel();
+  await copy();
 })();

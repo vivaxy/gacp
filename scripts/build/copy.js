@@ -12,12 +12,9 @@ const sourceRoot = path.join(projectRoot, 'src');
 const buildRoot = path.join(projectRoot, 'build');
 
 export default async () => {
-    await Promise.all(
-        files.map(file => {
-            return fse.copy(
-                path.join(sourceRoot, file),
-                path.join(buildRoot, file)
-            );
-        })
-    );
+  await Promise.all(
+    files.map(file => {
+      return fse.copy(path.join(sourceRoot, file), path.join(buildRoot, file));
+    })
+  );
 };

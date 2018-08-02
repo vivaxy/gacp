@@ -11,11 +11,11 @@ import pkg from '../../package.json';
 import index from '../commands/index';
 
 const configureYargs = () => {
-    return yargs.help().version().argv._;
+  return yargs.help().version().argv._;
 };
 
 configureYargs();
 updateNotifier({ pkg }).notify();
 index().catch(ex => {
-    throw ex;
+  throw ex;
 });

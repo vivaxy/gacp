@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/vivaxy/gacp/compare/v2.1.0...v2.1.1) (2019-01-10)
+
+
+### Bug Fixes
+
+* **push:** :bug:fix push with --follow-tags ([f0b9ef2](https://github.com/vivaxy/gacp/commit/f0b9ef2))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/vivaxy/gacp/compare/v2.0.1...v2.1.0) (2018-08-02)
 

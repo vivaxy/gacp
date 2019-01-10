@@ -1,6 +1,6 @@
 {
   "name": "gacp",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "git add commit and push",
   "main": "index.js",
   "bin": {

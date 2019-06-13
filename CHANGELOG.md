@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.3"></a>
+## [2.3.3](https://github.com/vivaxy/gacp/compare/v2.3.2...v2.3.3) (2019-06-13)
+
+
+### Performance Improvements
+
+* **history:** :zap:Optimize history performance ([c4850db](https://github.com/vivaxy/gacp/commit/c4850db))
+* **history:** :zap:Optimize history performance ([#16](https://github.com/vivaxy/gacp/issues/16)) ([2a5edfd](https://github.com/vivaxy/gacp/commit/2a5edfd))
+
+
+
 <a name="2.3.2"></a>
 ## [2.3.2](https://github.com/vivaxy/gacp/compare/v2.3.1...v2.3.2) (2019-06-13)
 

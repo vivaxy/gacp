@@ -40,7 +40,7 @@ const prepare = async () => {
   return { needGitAddOrCommit };
 };
 
-const execGitPush = async (push) => {
+const runGitPush = async (push) => {
   return push ? await gitPush : true;
 };
 
@@ -50,7 +50,7 @@ const runTasks = async ({ push }) => {
   if (!needGitAddOrCommit) {
     logger.info('Nothing to add, working tree clean.');
     logger.info('Nothing to commit, working tree clean.');
-    return await execGitPush(push);
+    return await runGitPush(push);
   }
 
   const commitMessage = await prompt();
@@ -58,7 +58,7 @@ const runTasks = async ({ push }) => {
   await gitCommit(commitMessage);
   // If commit success, remove last commit message
   await removeHistory();
-  return await execGitPush(push);
+  return await runGitPush(push);
 };
 
 module.exports = async (options) => {

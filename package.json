@@ -9,8 +9,7 @@
   "scripts": {
     "beta": "npm run test && npm publish --registry=https://registry.npmjs.org/ --tag beta",
     "release": "npm run test && standard-version && git push --follow-tags && npm publish --registry=https://registry.npmjs.org/",
-    "test": "cross-env NODE_ENV=test nyc ava && nyc report --reporter=html && nyc report --reporter=lcov > coverage.lcov",
-    "precommit": "lint-staged"
+    "test": "cross-env NODE_ENV=test nyc ava && nyc report --reporter=html && nyc report --reporter=lcov > coverage.lcov"
   },
   "repository": {
     "type": "git",
@@ -56,14 +55,16 @@
     "yargs": "^6.4.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
     "@vivaxy/babel-folder": "^0.1.1",
     "ava": "^0.18.2",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-0": "^6.16.0",
     "cross-env": "^3.2.4",
     "glob": "^7.1.1",
-    "husky": "^0.14.3",
-    "lint-staged": "^6.1.0",
+    "husky": "^2.4.1",
+    "lint-staged": "^8.2.0",
     "nyc": "^10.1.2",
     "prettier": "^1.10.2"
   },
@@ -83,5 +84,11 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }

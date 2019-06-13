@@ -41,7 +41,7 @@ const prepare = async () => {
 };
 
 const runGitPush = async (push) => {
-  return push ? await gitPush : true;
+  return push ? await gitPush() : true;
 };
 
 const runTasks = async ({ push }) => {

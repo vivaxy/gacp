@@ -11,3 +11,4 @@ exports.GACPHOME = `${process.env.HOME ||
 exports.GITMOJI_CONFIG_FILE_NAME = 'gitmojis.json';
 // from conventional-commit-types
 exports.COMMIT_TYPES_CONFIG_FILE_NAME = 'conventional-commit-types.json';
+exports.HISTORY_FILE_NAME = 'history.json';

@@ -45,9 +45,9 @@
     {
       "emoji": "📝",
       "entity": "&#x1f4dd;",
-      "code": ":memo:",
+      "code": ":pencil:",
       "description": "Writing docs.",
-      "name": "memo"
+      "name": "pencil"
     },
     {
       "emoji": "🚀",
@@ -74,7 +74,7 @@
       "emoji": "✅",
       "entity": "&#x2705;",
       "code": ":white_check_mark:",
-      "description": "Adding tests.",
+      "description": "Updating tests.",
       "name": "white-check-mark"
     },
     {
@@ -189,13 +189,6 @@
       "name": "recycle"
     },
     {
-      "emoji": "➖",
-      "entity": "&#10134;",
-      "code": ":heavy_minus_sign:",
-      "description": "Removing a dependency.",
-      "name": "heavy-minus-sign"
-    },
-    {
       "emoji": "🐳",
       "entity": "&#x1f433;",
       "code": ":whale:",
@@ -208,6 +201,13 @@
       "code": ":heavy_plus_sign:",
       "description": "Adding a dependency.",
       "name": "heavy-plus-sign"
+    },
+    {
+      "emoji": "➖",
+      "entity": "&#10134;",
+      "code": ":heavy_minus_sign:",
+      "description": "Removing a dependency.",
+      "name": "heavy-minus-sign"
     },
     {
       "emoji": "🔧",
@@ -233,9 +233,9 @@
     {
       "emoji": "💩",
       "entity": "&#58613;",
-      "code": ":hankey:",
+      "code": ":poop:",
       "description": "Writing bad code that needs to be improved.",
-      "name": "hankey"
+      "name": "poop"
     },
     {
       "emoji": "⏪",
@@ -404,6 +404,34 @@
       "code": ":camera_flash:",
       "description": "Adding or updating snapshots",
       "name": "camera-flash"
+    },
+    {
+      "emoji": "⚗",
+      "entity": "&#128248;",
+      "code": ":alembic:",
+      "description": "Experimenting new things",
+      "name": "alembic"
+    },
+    {
+      "emoji": "🔍",
+      "entity": "&#128269;",
+      "code": ":mag:",
+      "description": "Improving SEO",
+      "name": "mag"
+    },
+    {
+      "emoji": "☸️",
+      "entity": "&#9784;",
+      "code": ":wheel_of_dharma:",
+      "description": "Work about Kubernetes",
+      "name": "wheel-of-dharma"
+    },
+    {
+      "emoji": "🏷️",
+      "entity": "&#127991;",
+      "code": ":label:",
+      "description": "Adding or updating types (Flow, TypeScript)",
+      "name": "label"
     }
   ]
 }

@@ -23,6 +23,6 @@ module.exports = async () => {
   if (!remote) {
     throw new GacpError('No tracking remote.');
   }
-  logger.command(`git push ${remote} ${branch} --follow-tag`);
-  return await execa('git', ['push', remote, branch, '--follow-tag']);
+  logger.command(`git push ${remote} ${branch} --follow-tags`);
+  return await execa('git', ['push', remote, branch, '--follow-tags']);
 };

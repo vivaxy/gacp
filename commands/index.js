@@ -14,6 +14,7 @@ const gitFetch = require('../git/commands/gitFetch.js');
 const prompt = require('../lib/prompt.js');
 const GacpError = require('../errors/GacpError.js');
 const errorTypes = require('../configs/errorTypes.js');
+const { removeHistory } = require('../lib/history.js');
 
 const getNow = () => {
   return new Date().getTime();
@@ -51,6 +52,8 @@ const runTasks = async () => {
   const commitMessage = await prompt();
   await gitAdd();
   await gitCommit(commitMessage);
+  // If commit success, remove last commit message
+  await removeHistory();
   return await gitPush();
 };
 

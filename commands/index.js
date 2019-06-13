@@ -14,7 +14,7 @@ const gitFetch = require('../git/commands/gitFetch.js');
 const prompt = require('../lib/prompt.js');
 const GacpError = require('../errors/GacpError.js');
 const errorTypes = require('../configs/errorTypes.js');
-const { removeHistory } = require('../lib/history.js');
+const { clearHistory, flushHistory } = require('../lib/history.js');
 
 const getNow = () => {
   return new Date().getTime();
@@ -57,7 +57,7 @@ const runTasks = async ({ push }) => {
   await gitAdd();
   await gitCommit(commitMessage);
   // If commit success, remove last commit message
-  await removeHistory();
+  clearHistory();
   return await runGitPush(push);
 };
 
@@ -67,6 +67,7 @@ module.exports = async (options) => {
     await runTasks(options);
     const endTime = getNow();
     logger.success(`Done in ${(endTime - startTime) / 1000}s`);
+    await flushHistory();
     process.exit(0);
   } catch (ex) {
     if (ex.type === errorTypes.GACP) {
@@ -74,6 +75,7 @@ module.exports = async (options) => {
     } else {
       logger.uncaughtError(ex);
     }
+    await flushHistory();
     process.exit(1);
   }
 };

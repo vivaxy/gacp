@@ -41,10 +41,10 @@ const prepare = async () => {
 };
 
 const runGitPush = async (push) => {
-  return push ? await gitPush() : true;
+  return push && (await gitPush());
 };
 
-const runTasks = async ({ push }) => {
+const runTasks = async ({ push, emoji }) => {
   const { needGitAddOrCommit } = await prepare();
 
   if (!needGitAddOrCommit) {
@@ -53,7 +53,7 @@ const runTasks = async ({ push }) => {
     return await runGitPush(push);
   }
 
-  const commitMessage = await prompt();
+  const commitMessage = await prompt(emoji);
   await gitAdd();
   await gitCommit(commitMessage);
   // If commit success, remove last commit message

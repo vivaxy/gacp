@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.5.0"></a>
+# [2.5.0](https://github.com/vivaxy/gacp/compare/v2.4.0...v2.5.0) (2019-06-14)
+
+
+### Features
+
+* **promopt:** :sparkles: Use autocomplete to improve select experience ([b3af533](https://github.com/vivaxy/gacp/commit/b3af533))
+
+
+
 <a name="2.4.0"></a>
 # [2.4.0](https://github.com/vivaxy/gacp/compare/v2.3.3...v2.4.0) (2019-06-14)
 

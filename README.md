@@ -34,9 +34,13 @@ you can configure gacp via:
 - A .gacprc file, written JSON, with optional extensions: .json.
 
 ### Basic Configuration
+
+With default configuration.
+
 ```json
 {
-  "emoji": "emoji"
+  "push": true,
+  "emoji": "code"
 }
 ```
 

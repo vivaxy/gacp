@@ -45,6 +45,7 @@
     "conventional-commit-types": "^2.2.0",
     "debug": "^4.1.1",
     "execa": "^0.5.0",
+    "find-up": "^4.0.0",
     "fs-extra": "^3.0.1",
     "inquirer": "^1.2.3",
     "log-symbols": "^2.2.0",

@@ -29,7 +29,7 @@ Git add, commit, push with conventional-changelog and gitmoji.
 
 ## Configuration File
 
-you can configure prettier via:
+you can configure gacp via:
 
 - A .gacprc file, written JSON, with optional extensions: .json.
 

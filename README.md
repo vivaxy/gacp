@@ -9,7 +9,7 @@
 [![Standard Version][standard-version-image]][standard-version-url]
 [![Codecov][codecov-image]][codecov-url]
 
-Git add, commit, push with conventional-changelog and gitmoji.
+Git add, commit, push with conventional-changelog and gitmoji!
 
 ![GACP](./assets/images/gacp.gif)
 
@@ -21,7 +21,7 @@ Git add, commit, push with conventional-changelog and gitmoji.
 
 `gacp`
 
-`gacp help`
+`gacp --help`
 
 `gacp --no-push`
 
@@ -34,9 +34,13 @@ you can configure gacp via:
 - A .gacprc file, written JSON, with optional extensions: .json.
 
 ### Basic Configuration
+
+With default configuration.
+
 ```json
 {
-  "emoji": "emoji"
+  "push": true,
+  "emoji": "code"
 }
 ```
 

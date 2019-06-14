@@ -21,7 +21,7 @@ Git add, commit, push with conventional-changelog and gitmoji.
 
 `gacp`
 
-`gacp help`
+`gacp --help`
 
 `gacp --no-push`
 

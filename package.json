@@ -51,7 +51,7 @@
     "prompts": "^2.1.0",
     "right-pad": "^1.0.1",
     "standard-version": "^4.3.0",
-    "update-notifier": "^2.1.0",
+    "update-notifier": "^3.0.0",
     "word-wrap": "^1.1.0",
     "yargs": "^6.4.0"
   },

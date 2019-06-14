@@ -27,6 +27,19 @@ Git add, commit, push with conventional-changelog and gitmoji.
 
 `gacp --emoji emoji`
 
+## Configuration File
+
+you can configure prettier via:
+
+- A .gacprc file, written JSON, with optional extensions: .json.
+
+### Basic Configuration
+```json
+{
+  "emoji": "emoji"
+}
+```
+
 ## Change log
 
 [Change log](CHANGELOG.md)

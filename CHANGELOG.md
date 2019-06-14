@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.3"></a>
+## [2.3.3](https://github.com/vivaxy/gacp/compare/v2.3.2...v2.3.3) (2019-06-13)
+
+
+### Performance Improvements
+
+* **history:** :zap:Optimize history performance ([c4850db](https://github.com/vivaxy/gacp/commit/c4850db))
+* **history:** :zap:Optimize history performance ([#16](https://github.com/vivaxy/gacp/issues/16)) ([2a5edfd](https://github.com/vivaxy/gacp/commit/2a5edfd))
+
+
+
+<a name="2.3.2"></a>
+## [2.3.2](https://github.com/vivaxy/gacp/compare/v2.3.1...v2.3.2) (2019-06-13)
+
+
+
+<a name="2.3.1"></a>
+## [2.3.1](https://github.com/vivaxy/gacp/compare/v2.3.0...v2.3.1) (2019-06-13)
+
+
+
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/vivaxy/gacp/compare/v2.2.1...v2.3.0) (2019-06-13)
+
+
+### Bug Fixes
+
+* **conflict:** :bug:fix conflict ([3ede1bf](https://github.com/vivaxy/gacp/commit/3ede1bf))
+* **push:** :bug:argv ([e5b4abf](https://github.com/vivaxy/gacp/commit/e5b4abf))
+* **push:** :bug:function ([92373d9](https://github.com/vivaxy/gacp/commit/92373d9))
+* **push:** :bug:function ([df569f3](https://github.com/vivaxy/gacp/commit/df569f3))
+
+
+### Features
+
+* **add options:** :sparkles:add push option ([587e142](https://github.com/vivaxy/gacp/commit/587e142))
+* **add options:** :sparkles:add push option ([f94fc07](https://github.com/vivaxy/gacp/commit/f94fc07))
+
+
+
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/vivaxy/gacp/compare/v2.2.0...v2.2.1) (2019-06-13)
 

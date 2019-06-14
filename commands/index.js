@@ -14,7 +14,7 @@ const gitFetch = require('../git/commands/gitFetch.js');
 const prompt = require('../lib/prompt.js');
 const GacpError = require('../errors/GacpError.js');
 const errorTypes = require('../configs/errorTypes.js');
-const { removeHistory } = require('../lib/history.js');
+const { clearHistory, flushHistory } = require('../lib/history.js');
 
 const getNow = () => {
   return new Date().getTime();
@@ -40,29 +40,34 @@ const prepare = async () => {
   return { needGitAddOrCommit };
 };
 
-const runTasks = async () => {
+const runGitPush = async (push) => {
+  return push ? await gitPush() : true;
+};
+
+const runTasks = async ({ push }) => {
   const { needGitAddOrCommit } = await prepare();
 
   if (!needGitAddOrCommit) {
     logger.info('Nothing to add, working tree clean.');
     logger.info('Nothing to commit, working tree clean.');
-    return await gitPush();
+    return await runGitPush(push);
   }
 
   const commitMessage = await prompt();
   await gitAdd();
   await gitCommit(commitMessage);
   // If commit success, remove last commit message
-  await removeHistory();
-  return await gitPush();
+  clearHistory();
+  return await runGitPush(push);
 };
 
-module.exports = async () => {
+module.exports = async (options) => {
   try {
     const startTime = getNow();
-    await runTasks();
+    await runTasks(options);
     const endTime = getNow();
     logger.success(`Done in ${(endTime - startTime) / 1000}s`);
+    await flushHistory();
     process.exit(0);
   } catch (ex) {
     if (ex.type === errorTypes.GACP) {
@@ -70,6 +75,7 @@ module.exports = async () => {
     } else {
       logger.uncaughtError(ex);
     }
+    await flushHistory();
     process.exit(1);
   }
 };

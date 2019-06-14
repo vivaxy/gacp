@@ -23,6 +23,8 @@ Git add, commit, push with conventional-changelog and gitmoji.
 
 `gacp help`
 
+`gacp --no-push`
+
 ## Change log
 
 [Change log](CHANGELOG.md)

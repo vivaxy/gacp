@@ -25,6 +25,8 @@ Git add, commit, push with conventional-changelog and gitmoji.
 
 `gacp --no-push`
 
+`gacp --emoji emoji`
+
 ## Change log
 
 [Change log](CHANGELOG.md)

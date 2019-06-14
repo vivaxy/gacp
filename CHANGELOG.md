@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.4.0"></a>
+# [2.4.0](https://github.com/vivaxy/gacp/compare/v2.3.3...v2.4.0) (2019-06-14)
+
+
+### Bug Fixes
+
+* **commitlint:** :bug:fix header-max-length to 72 ([c08b207](https://github.com/vivaxy/gacp/commit/c08b207))
+
+
+### Features
+
+* **config:** :sparkles: support .rc files ([5570d57](https://github.com/vivaxy/gacp/commit/5570d57))
+* **options:** :sparkles:add whether to use emoji code option ([69ebe29](https://github.com/vivaxy/gacp/commit/69ebe29))
+
+
+
 <a name="2.3.3"></a>
 ## [2.3.3](https://github.com/vivaxy/gacp/compare/v2.3.2...v2.3.3) (2019-06-13)
 

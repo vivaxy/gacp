@@ -29,9 +29,11 @@ Git add, commit, push with conventional-changelog and gitmoji!
 
 ## Configuration File
 
-you can configure gacp via:
+You can configure gacp via:
 
-- A .gacprc file, written JSON, with optional extensions: .json.
+- A `gacp` property in `package.json`.
+- A `.gacprc` file in JSON, YAML or CommonJS with or without extensions `.json`, `.yaml`, `.yml`, `.js`.
+- A `gacp.config.js` file in CommonJS.
 
 ### Basic Configuration
 

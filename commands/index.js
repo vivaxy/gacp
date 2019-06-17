@@ -53,7 +53,7 @@ const runTasks = async ({ push, emoji }) => {
     return await runGitPush(push);
   }
 
-  const commitMessage = await prompt(emoji);
+  const commitMessage = await prompt({ emojiType: emoji });
   await gitAdd();
   await gitCommit(commitMessage);
   // If commit success, remove last commit message

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "beta": "npm run test && npm publish --registry=https://registry.npmjs.org/ --tag beta",
-    "release": "npm run test && standard-version && lib/git push --follow-tags && npm publish --registry=https://registry.npmjs.org/",
+    "release": "npm run test && standard-version && git push --follow-tags && npm publish --registry=https://registry.npmjs.org/",
     "test": "cross-env NODE_ENV=test nyc ava && nyc report --reporter=html && nyc report --reporter=lcov > coverage.lcov"
   },
   "repository": {

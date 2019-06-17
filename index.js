@@ -5,4 +5,4 @@
  * @author vivaxy
  */
 
-require('./lib/index.js');
+require('./lib/cli.js');

@@ -1,6 +1,10 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [2.5.3](https://github.com/vivaxy/gacp/compare/v2.5.2...v2.5.3) (2019-06-17)
+
+
 
 <a name="2.5.2"></a>
 ## [2.5.2](https://github.com/vivaxy/gacp/compare/v2.5.1...v2.5.2) (2019-06-17)

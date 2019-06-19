@@ -1,7 +1,5 @@
 # GACP
 
-![GACP](./assets/images/gacp.png)
-
 [![Build Status][travis-image]][travis-url]
 [![NPM Version][npm-version-image]][npm-url]
 [![NPM Downloads][npm-downloads-image]][npm-url]

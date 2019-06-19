@@ -2,9 +2,9 @@
   "name": "gacp",
   "version": "2.5.4",
   "description": "git add commit and push",
-  "main": "index.js",
+  "main": "lib/cli.js",
   "bin": {
-    "gacp": "index.js"
+    "gacp": "lib/cli.js"
   },
   "scripts": {
     "beta": "npm run test && npm publish --registry=https://registry.npmjs.org/ --tag beta",

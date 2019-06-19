@@ -15,7 +15,7 @@ Git add, commit, push with conventional-changelog and gitmoji!
 
 ## Installation
 
-`sudo npm i -g gacp`
+`npm i -g gacp`
 
 ## Usage
 

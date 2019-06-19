@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.4](https://github.com/vivaxy/gacp/compare/v2.5.3...v2.5.4) (2019-06-19)
+
+
+### Bug Fixes
+
+* **update notifier:** :bug: Fix install command will be `yarn add gacp` ([3248e60](https://github.com/vivaxy/gacp/commit/3248e60))
+
+
+
 ### [2.5.3](https://github.com/vivaxy/gacp/compare/v2.5.2...v2.5.3) (2019-06-17)
 
 

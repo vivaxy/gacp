@@ -17,7 +17,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * **stdout:** :bug: Fix stdout without colors ([c4d959a](https://github.com/vivaxy/gacp/commit/c4d959a))
-* **stdout:** :bug: Fix stdout without colors ([#24](https://github.com/vivaxy/gacp/issues/24)) ([7aa73d1](https://github.com/vivaxy/gacp/commit/7aa73d1))
 
 
 
@@ -87,7 +86,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### Performance Improvements
 
 * **history:** :zap:Optimize history performance ([c4850db](https://github.com/vivaxy/gacp/commit/c4850db))
-* **history:** :zap:Optimize history performance ([#16](https://github.com/vivaxy/gacp/issues/16)) ([2a5edfd](https://github.com/vivaxy/gacp/commit/2a5edfd))
 
 
 
@@ -107,15 +105,12 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* **conflict:** :bug:fix conflict ([3ede1bf](https://github.com/vivaxy/gacp/commit/3ede1bf))
 * **push:** :bug:argv ([e5b4abf](https://github.com/vivaxy/gacp/commit/e5b4abf))
-* **push:** :bug:function ([92373d9](https://github.com/vivaxy/gacp/commit/92373d9))
 * **push:** :bug:function ([df569f3](https://github.com/vivaxy/gacp/commit/df569f3))
 
 
 ### Features
 
-* **add options:** :sparkles:add push option ([587e142](https://github.com/vivaxy/gacp/commit/587e142))
 * **add options:** :sparkles:add push option ([f94fc07](https://github.com/vivaxy/gacp/commit/f94fc07))
 
 

@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* **sherbang:** :bug: Fix missing shebang ([9b72b9b](https://github.com/vivaxy/gacp/commit/9b72b9b))
+* **shebang:** :bug: Fix missing shebang ([9b72b9b](https://github.com/vivaxy/gacp/commit/9b72b9b))
 
 
 
@@ -68,7 +68,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **promopt:** :sparkles: Use autocomplete to improve select experience ([b3af533](https://github.com/vivaxy/gacp/commit/b3af533))
+* **prompt:** :sparkles: Use autocomplete to improve select experience ([b3af533](https://github.com/vivaxy/gacp/commit/b3af533))
 
 
 

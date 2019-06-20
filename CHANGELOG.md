@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.6](https://github.com/vivaxy/gacp/compare/v2.5.5...v2.5.6) (2019-06-20)
+
+
+### Bug Fixes
+
+* **sherbang:** :bug: Fix missing shebang ([9b72b9b](https://github.com/vivaxy/gacp/commit/9b72b9b))
+
+
+
 ### [2.5.5](https://github.com/vivaxy/gacp/compare/v2.5.4...v2.5.5) (2019-06-20)
 
 

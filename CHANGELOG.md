@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.5](https://github.com/vivaxy/gacp/compare/v2.5.4...v2.5.5) (2019-06-20)
+
+
+### Bug Fixes
+
+* **stdout:** :bug: Fix stdout without colors ([c4d959a](https://github.com/vivaxy/gacp/commit/c4d959a))
+* **stdout:** :bug: Fix stdout without colors ([#24](https://github.com/vivaxy/gacp/issues/24)) ([7aa73d1](https://github.com/vivaxy/gacp/commit/7aa73d1))
+
+
+
 ### [2.5.4](https://github.com/vivaxy/gacp/compare/v2.5.3...v2.5.4) (2019-06-19)
 
 

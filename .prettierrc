@@ -11,7 +11,7 @@
   "jsxBracketSameLine": false,
   "arrowParens": "always",
   "proseWrap": "always",
-  "htmlWhitespaceSensitivity": "strict",
+  "htmlWhitespaceSensitivity": "css",
   "endOfLine": "lf",
   "overrides": [
     {

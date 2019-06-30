@@ -43,10 +43,10 @@
     "conventional-commit-types": "^2.1.1",
     "cosmiconfig": "^5.2.1",
     "debug": "^4.1.1",
+    "enquirer": "^2.3.0",
     "execa": "^0.5.0",
     "fs-extra": "^3.0.1",
     "log-symbols": "^2.2.0",
-    "prompts": "^2.1.0",
     "right-pad": "^1.0.1",
     "update-notifier": "^3.0.0",
     "word-wrap": "^1.1.0",
@@ -60,7 +60,7 @@
     "husky": "^2.4.1",
     "lint-staged": "^8.2.0",
     "nyc": "^10.1.2",
-    "prettier": "^1.10.2",
+    "prettier": "^1.18.2",
     "standard-version": "^6.0.1"
   },
   "lint-staged": {

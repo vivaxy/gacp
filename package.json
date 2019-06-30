@@ -64,7 +64,7 @@
     "standard-version": "^6.0.1"
   },
   "lint-staged": {
-    "**/**.{js,json,pcss,md}": [
+    "*.{js,ts,css,less,json,md,html,yml,yaml,pcss,jsx,tsx}": [
       "prettier --write",
       "git add"
     ]

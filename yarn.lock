@@ -3078,6 +3078,12 @@ log-symbols@^2.2.0:
   dependencies:
     chalk "^2.0.1"
 
+log-symbols@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-3.0.0.tgz#f3a08516a5dea893336a7dee14d18a1cfdab77c4"
+  dependencies:
+    chalk "^2.4.2"
+
 log-update@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/log-update/-/log-update-2.3.0.tgz#88328fd7d1ce7938b29283746f0b1bc126b24708"
@@ -3085,6 +3091,14 @@ log-update@^2.3.0:
     ansi-escapes "^3.0.0"
     cli-cursor "^2.0.0"
     wrap-ansi "^3.0.1"
+
+log-util@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/log-util/-/log-util-2.3.0.tgz#cdc9d01f4c599f860bbf797ef3f0f2eef55267d4"
+  dependencies:
+    chalk "^2.4.2"
+    figures "^3.0.0"
+    log-symbols "^3.0.0"
 
 longest@^1.0.1:
   version "1.0.1"

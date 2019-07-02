@@ -1,7 +1,5 @@
 # GACP
 
-![GACP](./assets/images/gacp.png)
-
 [![Build Status][travis-image]][travis-url]
 [![NPM Version][npm-version-image]][npm-url]
 [![NPM Downloads][npm-downloads-image]][npm-url]
@@ -9,13 +7,13 @@
 [![Standard Version][standard-version-image]][standard-version-url]
 [![Codecov][codecov-image]][codecov-url]
 
-Git add, commit, push with conventional-changelog and gitmoji!
+💬Git add, commit, push with conventional-changelog and gitmoji.
 
 ![GACP](./assets/images/gacp.gif)
 
 ## Installation
 
-`sudo npm i -g gacp`
+`npm i -g gacp`
 
 ## Usage
 
@@ -29,9 +27,11 @@ Git add, commit, push with conventional-changelog and gitmoji!
 
 ## Configuration File
 
-you can configure gacp via:
+You can configure gacp via:
 
-- A .gacprc file, written JSON, with optional extensions: .json.
+- A `gacp` property in `package.json`.
+- A `.gacprc` file in JSON, YAML or CommonJS with or without extensions `.json`, `.yaml`, `.yml`, `.js`.
+- A `gacp.config.js` file in CommonJS.
 
 ### Basic Configuration
 

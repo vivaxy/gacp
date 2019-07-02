@@ -1,6 +1,65 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [2.5.8](https://github.com/vivaxy/gacp/compare/v2.5.7...v2.5.8) (2019-06-20)
+
+
+### Bug Fixes
+
+* **error output:** :bug: Improve uncaught error output ([dcb91fe](https://github.com/vivaxy/gacp/commit/dcb91fe))
+
+
+
+### [2.5.7](https://github.com/vivaxy/gacp/compare/v2.5.6...v2.5.7) (2019-06-20)
+
+
+### Bug Fixes
+
+* **error output:** :bug: Improve uncaught error output ([9c2f3a9](https://github.com/vivaxy/gacp/commit/9c2f3a9))
+
+
+
+### [2.5.6](https://github.com/vivaxy/gacp/compare/v2.5.5...v2.5.6) (2019-06-20)
+
+
+### Bug Fixes
+
+* **shebang:** :bug: Fix missing shebang ([9b72b9b](https://github.com/vivaxy/gacp/commit/9b72b9b))
+
+
+
+### [2.5.5](https://github.com/vivaxy/gacp/compare/v2.5.4...v2.5.5) (2019-06-20)
+
+
+### Bug Fixes
+
+* **stdout:** :bug: Fix stdout without colors ([c4d959a](https://github.com/vivaxy/gacp/commit/c4d959a))
+
+
+
+### [2.5.4](https://github.com/vivaxy/gacp/compare/v2.5.3...v2.5.4) (2019-06-19)
+
+
+### Bug Fixes
+
+* **update notifier:** :bug: Fix install command will be `yarn add gacp` ([3248e60](https://github.com/vivaxy/gacp/commit/3248e60))
+
+
+
+### [2.5.3](https://github.com/vivaxy/gacp/compare/v2.5.2...v2.5.3) (2019-06-17)
+
+
+
+<a name="2.5.2"></a>
+## [2.5.2](https://github.com/vivaxy/gacp/compare/v2.5.1...v2.5.2) (2019-06-17)
+
+
+### Bug Fixes
+
+* **emoji:** :bug: Fix none in emoji ([98f6048](https://github.com/vivaxy/gacp/commit/98f6048))
+
+
 
 <a name="2.5.1"></a>
 ## [2.5.1](https://github.com/vivaxy/gacp/compare/v2.5.0...v2.5.1) (2019-06-14)
@@ -18,7 +77,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **promopt:** :sparkles: Use autocomplete to improve select experience ([b3af533](https://github.com/vivaxy/gacp/commit/b3af533))
+* **prompt:** :sparkles: Use autocomplete to improve select experience ([b3af533](https://github.com/vivaxy/gacp/commit/b3af533))
 
 
 
@@ -45,7 +104,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### Performance Improvements
 
 * **history:** :zap:Optimize history performance ([c4850db](https://github.com/vivaxy/gacp/commit/c4850db))
-* **history:** :zap:Optimize history performance ([#16](https://github.com/vivaxy/gacp/issues/16)) ([2a5edfd](https://github.com/vivaxy/gacp/commit/2a5edfd))
 
 
 
@@ -65,15 +123,12 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* **conflict:** :bug:fix conflict ([3ede1bf](https://github.com/vivaxy/gacp/commit/3ede1bf))
 * **push:** :bug:argv ([e5b4abf](https://github.com/vivaxy/gacp/commit/e5b4abf))
-* **push:** :bug:function ([92373d9](https://github.com/vivaxy/gacp/commit/92373d9))
 * **push:** :bug:function ([df569f3](https://github.com/vivaxy/gacp/commit/df569f3))
 
 
 ### Features
 
-* **add options:** :sparkles:add push option ([587e142](https://github.com/vivaxy/gacp/commit/587e142))
 * **add options:** :sparkles:add push option ([f94fc07](https://github.com/vivaxy/gacp/commit/f94fc07))
 
 

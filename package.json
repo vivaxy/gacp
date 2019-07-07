@@ -101,5 +101,20 @@
     "require": [
       "ts-node/register"
     ]
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "sourceMap": true
   }
 }

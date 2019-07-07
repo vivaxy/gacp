@@ -2,14 +2,16 @@
   "name": "gacp",
   "version": "2.6.0",
   "description": "git add commit and push",
-  "main": "lib/cli.js",
+  "main": "lib/gacp.js",
+  "types": "lib/gacp.d.ts",
   "bin": {
-    "gacp": "lib/cli.js"
+    "gacp": "lib/bin.js"
   },
   "scripts": {
-    "beta": "npm run test && npm publish --registry=https://registry.npmjs.org/ --tag beta",
-    "release": "npm run test && standard-version && git push --follow-tags && npm publish --registry=https://registry.npmjs.org/",
-    "test": "cross-env NODE_ENV=test nyc ava && nyc report --reporter=html && nyc report --reporter=lcov > coverage.lcov"
+    "build": "tsc",
+    "test": "cross-env NODE_ENV=test nyc ava && nyc report --reporter=html && nyc report --reporter=lcov > coverage.lcov",
+    "beta": "npm run test && npm run build && npm publish --registry=https://registry.npmjs.org/ --tag beta",
+    "release": "npm run test && npm run build && standard-version && git push --follow-tags && npm publish --registry=https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
@@ -46,23 +48,35 @@
     "execa": "^0.5.0",
     "figures": "^3.0.0",
     "fs-extra": "^3.0.1",
+    "ink": "^2.3.0",
     "log-util": "^2.3.0",
     "prompts": "^2.1.0",
+    "react": "^16.8.6",
     "right-pad": "^1.0.1",
     "update-notifier": "^3.0.0",
-    "word-wrap": "^1.1.0",
+    "word-wrap": "^1.2.3",
     "yargs": "^6.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
+    "@types/cosmiconfig": "^5.0.3",
+    "@types/execa": "^0.9.0",
+    "@types/fs-extra": "^8.0.0",
+    "@types/node": "^12.0.12",
+    "@types/prompts": "^2.0.1",
+    "@types/update-notifier": "^2.5.0",
+    "@types/word-wrap": "^1.2.0",
+    "@types/yargs": "^13.0.0",
     "ava": "^2.1.0",
     "cross-env": "^3.2.4",
     "husky": "^2.4.1",
     "lint-staged": "^8.2.0",
     "nyc": "^10.1.2",
     "prettier": "^1.18.2",
-    "standard-version": "^6.0.1"
+    "standard-version": "^6.0.1",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
   },
   "lint-staged": {
     "*.{js,ts,css,less,json,md,html,yml,yaml,pcss,jsx,tsx}": [
@@ -75,5 +89,32 @@
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "ava": {
+    "files": [
+      "src/**/__tests__/**/*.ts"
+    ],
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "sourceMap": true
   }
 }

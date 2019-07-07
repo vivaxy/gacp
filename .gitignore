@@ -6,3 +6,5 @@ npm-debug.log
 .nyc_output
 coverage
 coverage.lcov
+lib
+yarn-error.log

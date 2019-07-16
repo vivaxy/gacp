@@ -17,7 +17,6 @@ import {
   getRuleValue,
 } from './messages/commitlint-config';
 import { EMOJI_TYPES } from './configs';
-import { PromptObject } from 'prompts';
 
 function debug(...message: any[]) {
   log.debug('gacp:prompt', ...message);
@@ -62,7 +61,7 @@ export default async function prompt({
   debug('history:', history);
 
   // ${type}(${scope}): ${emoji}${subject} \n\n ${body} \n\n ${footer}
-  const questions: PromptObject[] = [
+  const questions: prompts.PromptObject[] = [
     {
       type: 'autocomplete',
       name: 'type',
@@ -147,9 +146,19 @@ export default async function prompt({
   let head = `${answers.type}${scope}: ${gitmoji}${answers.subject.trim()}`;
   head = head.slice(0, maxHeaderLength);
 
+  function wrapWords(key: 'body' | 'footer'): string {
+    return wrap(answers[key], {
+      ...wrapOptions,
+      width:
+        wrapOptions.width === Infinity
+          ? answers[key].length
+          : wrapOptions.width,
+    });
+  }
+
   // Wrap these lines at 100 characters
-  const body = wrap(answers.body, wrapOptions);
-  const footer = wrap(answers.footer, wrapOptions);
+  const body = wrapWords('body');
+  const footer = wrapWords('footer');
 
   await updateTypesStat(answers.type);
 

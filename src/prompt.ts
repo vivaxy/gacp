@@ -147,9 +147,19 @@ export default async function prompt({
   let head = `${answers.type}${scope}: ${gitmoji}${answers.subject.trim()}`;
   head = head.slice(0, maxHeaderLength);
 
+  function wrapWords(key: 'body' | 'footer'): string {
+    return wrap(answers[key], {
+      ...wrapOptions,
+      width:
+        wrapOptions.width === Infinity
+          ? answers[key].length
+          : wrapOptions.width,
+    });
+  }
+
   // Wrap these lines at 100 characters
-  const body = wrap(answers.body, wrapOptions);
-  const footer = wrap(answers.footer, wrapOptions);
+  const body = wrapWords('body');
+  const footer = wrapWords('footer');
 
   await updateTypesStat(answers.type);
 

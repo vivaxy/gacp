@@ -17,7 +17,6 @@ import {
   getRuleValue,
 } from './messages/commitlint-config';
 import { EMOJI_TYPES } from './configs';
-import { PromptObject } from 'prompts';
 
 function debug(...message: any[]) {
   log.debug('gacp:prompt', ...message);
@@ -62,7 +61,7 @@ export default async function prompt({
   debug('history:', history);
 
   // ${type}(${scope}): ${emoji}${subject} \n\n ${body} \n\n ${footer}
-  const questions: PromptObject[] = [
+  const questions: prompts.PromptObject[] = [
     {
       type: 'autocomplete',
       name: 'type',

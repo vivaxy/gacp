@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/vivaxy/gacp/compare/v2.5.8...v2.6.0) (2019-07-04)
+
+
+### Bug Fixes
+
+* **prompt:** :bug: Fix prompt ([0d83543](https://github.com/vivaxy/gacp/commit/0d83543))
+* **prompt:** none ([369c88b](https://github.com/vivaxy/gacp/commit/369c88b))
+* **remove:** :fire: remove lib/index.js ([65546ec](https://github.com/vivaxy/gacp/commit/65546ec))
+
+
+### Features
+
+* **commitlint config:** :sparkles: format commit message with local com ([3481762](https://github.com/vivaxy/gacp/commit/3481762))
+
+
+
 ### [2.5.8](https://github.com/vivaxy/gacp/compare/v2.5.7...v2.5.8) (2019-06-20)
 
 

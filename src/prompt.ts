@@ -13,11 +13,13 @@ import { getCommitTypes, updateTypesStat } from './messages/commit-types';
 
 import { getGitmojis, updateGitmojisStat } from './messages/gitmojis';
 import {
+  CommitlintRule,
   getCommitlintConfigRules,
   getRuleValue,
 } from './messages/commitlint-config';
 import { EMOJI_TYPES } from './configs';
 import { PromptObject } from 'prompts';
+import { number } from 'prop-types';
 
 function debug(...message: any[]) {
   log.debug('gacp:prompt', ...message);
@@ -139,25 +141,22 @@ export default async function prompt({
   head = head.slice(0, maxHeaderLength);
 
   // Wrap these lines
-  const getWrapOptions = (width: number) => ({
-    trim: true,
-    newline: '\n',
-    indent: '',
-    width,
-  });
+  function getWrapOptions(width: number) {
+    return {
+      trim: true,
+      newline: '\n',
+      indent: '',
+      width,
+    };
+  }
 
-  const bodyContent = answers.body;
-  const maxBodyLineWidth = getRuleValue(bodyMaxLengthRule, bodyContent.length);
-  debug('maxBodyLineWidth', maxBodyLineWidth);
-  const body = wrap(bodyContent, getWrapOptions(maxBodyLineWidth));
+  function wrapWords(words: string, rule: CommitlintRule): string {
+    const maxLineWidth = getRuleValue(rule, words.length);
+    return wrap(words, getWrapOptions(maxLineWidth));
+  }
 
-  const footerContent = answers.footer;
-  const maxFooterLineWidth = getRuleValue(
-    footerMaxLengthRule,
-    footerContent.length,
-  );
-  debug('maxFooterLineWidth', maxFooterLineWidth);
-  const footer = wrap(footerContent, getWrapOptions(maxFooterLineWidth));
+  const body = wrapWords(answers.body, bodyMaxLengthRule);
+  const footer = wrapWords(answers.footer, footerMaxLengthRule);
 
   await updateTypesStat(answers.type);
 

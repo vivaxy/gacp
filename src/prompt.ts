@@ -13,6 +13,7 @@ import { getCommitTypes, updateTypesStat } from './messages/commit-types';
 
 import { getGitmojis, updateGitmojisStat } from './messages/gitmojis';
 import {
+  CommitlintRule,
   getCommitlintConfigRules,
   getRuleValue,
 } from './messages/commitlint-config';
@@ -122,20 +123,11 @@ export default async function prompt({
   const {
     'header-max-length': headerMaxLengthRule,
     'body-max-line-length': bodyMaxLengthRule,
+    'footer-max-line-length': footerMaxLengthRule,
   } = await getCommitlintConfigRules();
 
   const maxHeaderLength = getRuleValue(headerMaxLengthRule, Infinity);
   debug('maxHeaderLength', maxHeaderLength);
-
-  const maxLineWidth = getRuleValue(bodyMaxLengthRule, Infinity);
-  debug('maxLineWidth', maxLineWidth);
-
-  const wrapOptions = {
-    trim: true,
-    newline: '\n',
-    indent: '',
-    width: maxLineWidth,
-  };
 
   // parentheses are only needed when a scope is present
   let scope = answers.scope.trim();
@@ -146,19 +138,23 @@ export default async function prompt({
   let head = `${answers.type}${scope}: ${gitmoji}${answers.subject.trim()}`;
   head = head.slice(0, maxHeaderLength);
 
-  function wrapWords(key: 'body' | 'footer'): string {
-    return wrap(answers[key], {
-      ...wrapOptions,
-      width:
-        wrapOptions.width === Infinity
-          ? answers[key].length
-          : wrapOptions.width,
-    });
+  // Wrap these lines
+  function getWrapOptions(width: number) {
+    return {
+      trim: true,
+      newline: '\n',
+      indent: '',
+      width,
+    };
   }
 
-  // Wrap these lines at 100 characters
-  const body = wrapWords('body');
-  const footer = wrapWords('footer');
+  function wrapWords(words: string, rule: CommitlintRule): string {
+    const maxLineWidth = getRuleValue(rule, words.length);
+    return wrap(words, getWrapOptions(maxLineWidth));
+  }
+
+  const body = wrapWords(answers.body, bodyMaxLengthRule);
+  const footer = wrapWords(answers.footer, footerMaxLengthRule);
 
   await updateTypesStat(answers.type);
 

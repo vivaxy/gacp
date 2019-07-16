@@ -1,8 +1,10 @@
 // @ts-ignore
 import * as load from '@commitlint/load';
 
+export type CommitlintRule = [number, string, number];
+
 export async function getCommitlintConfigRules(): Promise<{
-  [key: string]: [number, string, number];
+  [key: string]: CommitlintRule;
 }> {
   let rules;
   try {
@@ -15,7 +17,7 @@ export async function getCommitlintConfigRules(): Promise<{
 }
 
 export function getRuleValue(
-  [level, , value]: [number, string, number] = [0, '', 0],
+  [level, , value]: CommitlintRule = [0, '', 0],
   defaultValue: number,
 ) {
   return level === 2 ? value : defaultValue;

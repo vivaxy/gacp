@@ -19,7 +19,6 @@ import {
 } from './messages/commitlint-config';
 import { EMOJI_TYPES } from './configs';
 import { PromptObject } from 'prompts';
-import { number } from 'prop-types';
 
 function debug(...message: any[]) {
   log.debug('gacp:prompt', ...message);

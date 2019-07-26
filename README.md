@@ -58,6 +58,8 @@ With default configuration.
 - [commitizen](https://github.com/commitizen/cz-cli)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
 - [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
+- [git-commit-cp](https://github.com/Dolov/git-commit-cp)
+- [git-cz](https://github.com/streamich/git-cz)
 
 [travis-image]: https://img.shields.io/travis/vivaxy/gacp.svg?style=flat-square
 [travis-url]: https://travis-ci.org/vivaxy/gacp

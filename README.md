@@ -52,6 +52,12 @@ With default configuration.
 
 [Contributing](CONTRIBUTING.md)
 
+## Contributors
+
+<a href="https://github.com/vivaxy/gacp/graphs/contributors">
+  <img src="https://contributors-img.firebaseapp.com/image?repo=vivaxy/gacp" />
+</a>
+
 ## Prior Art
 
 - [gcmt](https://github.com/vivaxy/gcmt)
@@ -60,6 +66,8 @@ With default configuration.
 - [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
 - [git-commit-cp](https://github.com/Dolov/git-commit-cp)
 - [git-cz](https://github.com/streamich/git-cz)
+
+#
 
 [travis-image]: https://img.shields.io/travis/vivaxy/gacp.svg?style=flat-square
 [travis-url]: https://travis-ci.org/vivaxy/gacp

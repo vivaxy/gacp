@@ -116,5 +116,10 @@
       "ts-node/register"
     ],
     "sourceMap": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }

@@ -135,7 +135,7 @@ export default async function prompt({
   const gitmoji = answers.gitmoji ? `${answers.gitmoji} ` : '';
 
   // Hard limit this line
-  let head = `${answers.type}${scope}: ${gitmoji}${answers.subject.trim()}`;
+  let head = `${answers.type}${scope}: ${gitmoji} ${answers.subject.trim()}`;
   head = head.slice(0, maxHeaderLength);
 
   // Wrap these lines

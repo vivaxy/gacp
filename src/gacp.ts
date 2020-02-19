@@ -81,7 +81,7 @@ async function runTasks({
     await git.push({ cwd });
   } else {
     if (push) {
-      log.info('Nothing to push, synced to remote.');
+      log.info('Nothing to push, everything up-to-date.');
     } else {
       log.info('Skipping push.');
     }

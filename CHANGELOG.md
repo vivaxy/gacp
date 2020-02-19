@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/vivaxy/gacp/compare/v2.6.3...v2.7.0) (2020-02-19)
+
+
+### Features
+
+* :sparkles:  support `--no-add` ([bd5fb4f](https://github.com/vivaxy/gacp/commit/bd5fb4f))
+
+
+
 ### [2.6.3](https://github.com/vivaxy/gacp/compare/v2.6.2...v2.6.3) (2020-02-03)
 
 

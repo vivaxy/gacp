@@ -22,6 +22,8 @@
 
 `gacp --help`
 
+`gacp --no-add`
+
 `gacp --no-push`
 
 `gacp --emoji emoji`
@@ -36,10 +38,11 @@ You can configure gacp via:
 
 ### Basic Configuration
 
-With default configuration.
+Default configuration:
 
 ```json
 {
+  "add": true,
   "push": true,
   "emoji": "code"
 }

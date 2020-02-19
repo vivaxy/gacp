@@ -25,6 +25,11 @@ async function configureYargs() {
   const { config = {} } = cosmiconfigResult || {};
   return yargs
     .options({
+      add: {
+        type: 'boolean',
+        desc: 'run git add .',
+        default: true,
+      },
       push: {
         type: 'boolean',
         desc: 'run git push',
@@ -74,12 +79,13 @@ function notifyUpdate() {
   try {
     notifyUpdate();
     await configureYargs();
-    const { logLevel, cwd, emoji, push } = yargs.argv;
+    const { logLevel, cwd, emoji, add, push } = yargs.argv;
     log.setLevel(logLevel as number);
     await gacp({
       cwd: cwd as string,
-      emoji: emoji as EMOJI_TYPES,
+      add: add as boolean,
       push: push as boolean,
+      emoji: emoji as EMOJI_TYPES,
     });
   } catch (e) {
     log.error(e.message);

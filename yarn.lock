@@ -594,10 +594,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@vivaxy/git@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@vivaxy/git/-/git-3.2.0.tgz#fefbd66055df6d3d1c9c6b0a3146e6f8cc577c9a"
-  integrity sha512-cMZZOJrDRtBr4awCjKm4810HFWmq9gg+v7V+4SMyQS+ExaQcVOof0qdkh2MXhbdea7zt4mn2pCF3ek6LA3dWhQ==
+"@vivaxy/git@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@vivaxy/git/-/git-3.3.1.tgz#20c18f9fef406a7be124acd10f3ec8076ec5f88f"
+  integrity sha512-FY5z4VYIjeps5NUeInhC7DF0DkSqC0LtEpol7dM9ooR8l/AN7nhEUhvLSfgc4LVKFwbGFSHHXUrnLxC+ZlxucQ==
   dependencies:
     "@types/fs-extra" "^8.0.0"
     execa "^2.0.3"

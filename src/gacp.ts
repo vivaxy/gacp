@@ -31,9 +31,9 @@ async function runTasks({
   emoji: EMOJI_TYPES;
   cwd: string;
 }) {
-  let needAdd = add;
-  let needCommit = true;
-  let needPush = push;
+  let needsAdd = add;
+  let needsCommit = true;
+  let needsPush = push;
   let commitMessage = '';
 
   const isGitRepository = await git.isRepositoryRoot({ cwd });
@@ -41,19 +41,21 @@ async function runTasks({
     throw new GacpError('Not a git repository.');
   }
 
-  if (needAdd) {
-    const gitClean = await git.isClean({ cwd });
-    needAdd = !gitClean;
-    needCommit = !gitClean;
-  }
+  const gitClean = await git.isClean({ cwd });
+  debug('gitClean', gitClean);
+  needsAdd = needsAdd && !gitClean;
+
+  const hasStagedFiles = (await git.getStagedFiles({ cwd })).length !== 0;
+  debug('hasStagedFiles', hasStagedFiles);
+  needsCommit = needsAdd || hasStagedFiles;
 
   // prompt first before performing any actions
-  if (needCommit) {
+  if (needsCommit) {
     commitMessage = await prompt({ emojiType: emoji });
     debug('commitMessage:', commitMessage);
   }
 
-  if (needAdd) {
+  if (needsAdd) {
     logger.command('git add .');
     await git.add({ cwd });
   } else {
@@ -64,7 +66,7 @@ async function runTasks({
     }
   }
 
-  if (needCommit) {
+  if (needsCommit) {
     await git.commit(commitMessage, { cwd });
   } else {
     log.info('Nothing to commit, working tree clean.');
@@ -72,12 +74,12 @@ async function runTasks({
   // If commit success, remove last commit message
   clearHistory();
 
-  if (!needAdd && !needCommit) {
+  if (!needsAdd && !needsCommit) {
     await git.fetch({ cwd });
-    needPush = await checkNeedsPush({ cwd });
+    needsPush = needsPush && (await checkNeedsPush({ cwd }));
   }
 
-  if (needPush) {
+  if (needsPush) {
     await git.push({ cwd });
   } else {
     if (push) {

@@ -2,29 +2,28 @@
  * @since 2016-11-22 21:20
  * @author vivaxy
  */
-
-import * as execa from 'execa';
+import * as git from '@vivaxy/git';
 
 import GacpError from '../../errors/gacp';
-import getRemote from '../status/get-remote';
-import getBranch from '../status/get-branch';
 import * as logger from '../../shell/logger';
-import checkRemoteDiffers from '../status/check-remote-differs';
 
-export default async function gitPush() {
-  const branch = await getBranch();
+export default async function gitPush({ cwd }: { cwd: string }) {
+  const branch = await git.getCurrentBranch({ cwd });
 
-  const remoteDiffer = await checkRemoteDiffers(branch);
+  const remoteDiffer =
+    (await git.getRevCount({
+      from: branch,
+      leftOnly: true,
+      cwd,
+    })) !== 0;
   if (remoteDiffer) {
     throw new GacpError('Remote differ, please pull changes.');
   }
 
-  const remote = await getRemote();
+  const remote = await git.getCurrentRemote({ cwd });
   if (!remote) {
     throw new GacpError('No tracking remote.');
   }
   logger.command(`git push ${remote} ${branch} --follow-tags`);
-  return await execa('git', ['push', remote, branch, '--follow-tags'], {
-    stdio: 'inherit',
-  });
+  await git.push({ cwd });
 }

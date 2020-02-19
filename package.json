@@ -1,7 +1,7 @@
 {
   "name": "gacp",
   "version": "2.6.3",
-  "description": "git add commit and push",
+  "description": "💬Git add, commit, push with conventional-changelog and gitmoji.",
   "main": "lib/gacp.js",
   "types": "lib/gacp.d.ts",
   "bin": {
@@ -42,6 +42,7 @@
   "homepage": "https://github.com/vivaxy/gacp#readme",
   "dependencies": {
     "@commitlint/load": "^8.1.0",
+    "@vivaxy/git": "^3.3.1",
     "chalk": "^2.4.2",
     "conventional-commit-types": "^2.1.1",
     "cosmiconfig": "^5.2.1",
@@ -50,7 +51,7 @@
     "fs-extra": "^3.0.1",
     "ink": "^2.3.0",
     "log-util": "^2.3.0",
-    "prompts": "^2.1.0",
+    "prompts": "^2.3.1",
     "react": "^16.8.6",
     "right-pad": "^1.0.1",
     "update-notifier": "^3.0.1",

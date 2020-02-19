@@ -2,11 +2,8 @@
  * @since 2016-11-27 13:59
  * @author vivaxy
  */
-
 import * as execa from 'execa';
-
-import getBranch from './get-branch';
-import getRemote from './get-remote';
+import * as git from '@vivaxy/git';
 
 async function hasCommitInShell(
   file: string,
@@ -31,13 +28,17 @@ async function hasCommitInShell(
   return result;
 }
 
-export default async function checkNeedPush(): Promise<boolean> {
+export default async function checkNeedPush({
+  cwd,
+}: {
+  cwd: string;
+}): Promise<boolean> {
   let result = true;
-  const remote = await getRemote();
+  const remote = await git.getCurrentRemote({ cwd });
   if (!remote) {
     result = false;
   } else {
-    const branch = await getBranch();
+    const branch = await git.getCurrentBranch({ cwd });
     result = await hasCommitInShell('git', [
       'log',
       `${remote}/${branch}..${branch}`,

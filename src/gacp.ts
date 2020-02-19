@@ -3,18 +3,14 @@
  * @author vivaxy
  */
 import * as log from 'log-util';
+import * as git from '@vivaxy/git';
 
-import checkIsGitRepository from './git/status/check-is-repository';
-import getGitClean from './git/status/get-clean';
-import checkNeedsPush from './git/status/check-needs-push';
-import gitAdd from './git/commands/git-add';
-import gitCommit from './git/commands/git-commit';
-import gitPush from './git/commands/git-push';
-import gitFetch from './git/commands/git-fetch';
 import prompt from './prompt';
 import GacpError from './errors/gacp';
-import { clearHistory, flushHistory } from './messages/history';
 import { EMOJI_TYPES } from './configs';
+import * as logger from './shell/logger';
+import checkNeedsPush from './git/status/check-needs-push';
+import { clearHistory, flushHistory } from './messages/history';
 
 function debug(...message: any[]) {
   log.debug('gacp:gacp', ...message);
@@ -22,14 +18,6 @@ function debug(...message: any[]) {
 
 function getNow() {
   return new Date().getTime();
-}
-
-async function checkGitRepository({ cwd }: { cwd: string }) {
-  const isGitRepository = await checkIsGitRepository({ cwd });
-
-  if (!isGitRepository) {
-    throw new GacpError('Not a git repository.');
-  }
 }
 
 async function runTasks({
@@ -48,10 +36,13 @@ async function runTasks({
   let needPush = push;
   let commitMessage = '';
 
-  await checkGitRepository({ cwd });
+  const isGitRepository = await git.isRepositoryRoot({ cwd });
+  if (!isGitRepository) {
+    throw new GacpError('Not a git repository.');
+  }
 
   if (needAdd) {
-    const gitClean = await getGitClean();
+    const gitClean = await git.isClean({ cwd });
     needAdd = !gitClean;
     needCommit = !gitClean;
   }
@@ -63,7 +54,8 @@ async function runTasks({
   }
 
   if (needAdd) {
-    await gitAdd();
+    logger.command('git add .');
+    await git.add({ cwd });
   } else {
     if (add) {
       log.info('Nothing to add, working tree clean.');
@@ -73,7 +65,7 @@ async function runTasks({
   }
 
   if (needCommit) {
-    await gitCommit(commitMessage);
+    await git.commit(commitMessage, { cwd });
   } else {
     log.info('Nothing to commit, working tree clean.');
   }
@@ -81,12 +73,12 @@ async function runTasks({
   clearHistory();
 
   if (!needAdd && !needCommit) {
-    await gitFetch();
-    needPush = await checkNeedsPush();
+    await git.fetch({ cwd });
+    needPush = await checkNeedsPush({ cwd });
   }
 
   if (needPush) {
-    await gitPush();
+    await git.push({ cwd });
   } else {
     if (push) {
       log.info('Nothing to push, synced to remote.');

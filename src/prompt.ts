@@ -94,7 +94,7 @@ export default async function prompt({
     {
       type: 'text',
       name: 'subject',
-      message: 'Write a short, imperative terse description of the change',
+      message: 'Write a short, imperative tense description of the change',
       initial: history.subject,
     },
     {

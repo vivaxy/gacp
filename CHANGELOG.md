@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.2](https://github.com/vivaxy/gacp/compare/v2.7.1...v2.7.2) (2020-02-25)
+
+
+### Bug Fixes
+
+* **typo:** :rewind:  revert last fix, `terse` to `tense` ([5aa6bc1](https://github.com/vivaxy/gacp/commit/5aa6bc1))
+
+
+
 ### [2.7.1](https://github.com/vivaxy/gacp/compare/v2.7.0...v2.7.1) (2020-02-25)
 
 

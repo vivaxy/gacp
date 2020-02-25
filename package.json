@@ -1,6 +1,6 @@
 {
   "name": "gacp",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "💬Git add, commit, push with conventional-changelog and gitmoji.",
   "main": "lib/gacp.js",
   "types": "lib/gacp.d.ts",

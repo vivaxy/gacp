@@ -85,6 +85,7 @@ Support this project with your organization. Your logo will show up here with a 
 - [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
 - [git-commit-cp](https://github.com/Dolov/git-commit-cp)
 - [git-cz](https://github.com/streamich/git-cz)
+- [cz-emoji](https://github.com/ngryman/cz-emoji)
 
 #
 

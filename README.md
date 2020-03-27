@@ -77,8 +77,9 @@ Support this project with your organization. Your logo will show up here with a 
 
 <a href="https://opencollective.com/gacp"><img src="https://opencollective.com/gacp/organization.svg?width=890"></a>
 
-## Prior Art
+## Related Projects
 
+- [VSCode Conventional Commits](https://github.com/vivaxy/vscode-conventional-commits)
 - [gcmt](https://github.com/vivaxy/gcmt)
 - [commitizen](https://github.com/commitizen/cz-cli)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)

@@ -44,7 +44,10 @@ Default configuration:
 {
   "add": true,
   "push": true,
-  "emoji": "code"
+  "emoji": "code",
+  "hooks": {
+    "postpush": "echo 'after push'"
+  }
 }
 ```
 

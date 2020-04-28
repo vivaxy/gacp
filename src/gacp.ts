@@ -80,7 +80,7 @@ async function runTasks({
   }
 
   if (needsPush) {
-    await git.push({ cwd });
+    await git.push({ cwd, followTags: true, setUpstream: true });
   } else {
     if (push) {
       log.info('Nothing to push, everything up-to-date.');

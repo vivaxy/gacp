@@ -17,8 +17,8 @@ export async function getCommitlintConfigRules(): Promise<{
 }
 
 export function getRuleValue(
-  [level, , value]: CommitlintRule = [0, '', 0],
+  [level, applicable, value]: CommitlintRule = [0, 'never', 0],
   defaultValue: number,
 ) {
-  return level === 2 ? value : defaultValue;
+  return level === 2 && applicable === 'always' ? value : defaultValue;
 }

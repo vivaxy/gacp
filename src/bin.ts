@@ -23,7 +23,7 @@ async function configureYargs() {
   const explorer = cosmiconfig(pkg.name);
   const cosmiconfigResult = await explorer.search();
   const { config = {} } = cosmiconfigResult || {};
-  return yargs
+  yargs
     .options({
       add: {
         type: 'boolean',
@@ -55,6 +55,13 @@ async function configureYargs() {
     .config(config)
     .help()
     .version().argv._;
+
+  const hooks = config.hooks || {};
+  return {
+    hooks: {
+      postpush: hooks.postpush || '',
+    },
+  };
 }
 
 function notifyUpdate() {
@@ -78,7 +85,7 @@ function notifyUpdate() {
 (async function() {
   try {
     notifyUpdate();
-    await configureYargs();
+    const extraConfigs = await configureYargs();
     const { logLevel, cwd, emoji, add, push } = yargs.argv;
     log.setLevel(logLevel as number);
     await gacp({
@@ -86,6 +93,9 @@ function notifyUpdate() {
       add: add as boolean,
       push: push as boolean,
       emoji: emoji as EMOJI_TYPES,
+      hooks: {
+        postpush: extraConfigs.hooks.postpush,
+      },
     });
   } catch (e) {
     log.error(e.message);

@@ -7,10 +7,15 @@ import * as git from '@vivaxy/git';
 
 import prompt from './prompt';
 import GacpError from './errors/gacp';
+import runHook from './shell/run-hook';
 import { EMOJI_TYPES } from './configs';
 import * as logger from './shell/logger';
-import checkNeedsPush from './git/status/check-needs-push';
+import checkNeedsPush from './git/check-needs-push';
 import { clearHistory, flushHistory } from './messages/history';
+
+type Hooks = {
+  postpush: string;
+};
 
 function debug(...message: any[]) {
   log.debug('gacp:gacp', ...message);
@@ -25,11 +30,13 @@ async function runTasks({
   push,
   emoji,
   cwd,
+  hooks,
 }: {
   add: boolean;
   push: boolean;
   emoji: EMOJI_TYPES;
   cwd: string;
+  hooks: Hooks;
 }) {
   let needsAdd = add;
   let needsCommit = true;
@@ -81,6 +88,7 @@ async function runTasks({
 
   if (needsPush) {
     await git.push({ cwd, followTags: true, setUpstream: true });
+    await runHook(hooks.postpush, { cwd });
   } else {
     if (push) {
       log.info('Nothing to push, everything up-to-date.');
@@ -95,14 +103,16 @@ export default async function gacp({
   add,
   push,
   emoji,
+  hooks,
 }: {
   cwd: string;
   add: boolean;
   push: boolean;
   emoji: EMOJI_TYPES;
+  hooks: Hooks;
 }) {
   const startTime = getNow();
-  await runTasks({ cwd, add, push, emoji });
+  await runTasks({ cwd, add, push, emoji, hooks });
   const endTime = getNow();
   log.success(`Done in ${(endTime - startTime) / 1000}s`);
   await flushHistory();

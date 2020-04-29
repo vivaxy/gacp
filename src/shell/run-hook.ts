@@ -15,6 +15,5 @@ export default async function runHook(
   if (!script) {
     return;
   }
-  const [command, ...args] = script.split(' ');
-  await execa(command, args, { cwd });
+  await execa.shell(script, { cwd });
 }

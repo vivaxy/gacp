@@ -125,7 +125,7 @@
   },
   "gacp": {
     "hooks": {
-      "postpush": "echo after push"
+      "postpush": "echo 'after push'"
     }
   }
 }

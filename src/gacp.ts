@@ -7,6 +7,7 @@ import * as git from '@vivaxy/git';
 
 import prompt from './prompt';
 import GacpError from './errors/gacp';
+import runHook from './shell/run-hook';
 import { EMOJI_TYPES } from './configs';
 import * as logger from './shell/logger';
 import checkNeedsPush from './git/status/check-needs-push';

@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](https://github.com/vivaxy/gacp/compare/v2.7.2...v2.8.0) (2020-04-29)
+
+
+### Bug Fixes
+
+* :bug: fix commitlint rule when rule config is set to `never` ([6ffbe7c](https://github.com/vivaxy/gacp/commit/6ffbe7c))
+
+
+### Build System
+
+* :children_crossing:  add vscode debug config ([2aa6aaa](https://github.com/vivaxy/gacp/commit/2aa6aaa))
+
+
+### Features
+
+* :sparkles:  support run postpush hook ([d7bc7d8](https://github.com/vivaxy/gacp/commit/d7bc7d8)), closes [#45](https://github.com/vivaxy/gacp/issues/45) [#46](https://github.com/vivaxy/gacp/issues/46)
+* :sparkles: add `--set-upstream` option when `git push` ([50d9258](https://github.com/vivaxy/gacp/commit/50d9258)), closes [#44](https://github.com/vivaxy/gacp/issues/44)
+
+
+
 ### [2.7.2](https://github.com/vivaxy/gacp/compare/v2.7.1...v2.7.2) (2020-02-25)
 
 

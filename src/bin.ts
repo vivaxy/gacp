@@ -16,7 +16,7 @@ import { EMOJI_TYPES } from './configs';
 const pkg = require('../package.json');
 
 function debug(...message: any[]) {
-  log.debug('gacp:cli', ...message);
+  log.debug('gacp:bin', ...message);
 }
 
 async function configureYargs() {

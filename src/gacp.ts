@@ -6,7 +6,6 @@ import * as log from 'log-util';
 import * as git from '@vivaxy/git';
 
 import prompt from './prompt';
-import GacpError from './errors/gacp';
 import runHook from './shell/run-hook';
 import { EMOJI_TYPES } from './configs';
 import * as logger from './shell/logger';
@@ -43,16 +42,14 @@ async function runTasks({
   let needsPush = push;
   let commitMessage = '';
 
-  const isGitRepository = await git.isRepositoryRoot({ cwd });
-  if (!isGitRepository) {
-    throw new GacpError('Not a git repository.');
-  }
+  const gitRoot = await git.getRootPath({ cwd });
 
-  const gitClean = await git.isClean({ cwd });
+  const gitClean = await git.isClean({ cwd: gitRoot });
   debug('gitClean', gitClean);
   needsAdd = needsAdd && !gitClean;
 
-  const hasStagedFiles = (await git.getStagedFiles({ cwd })).length !== 0;
+  const hasStagedFiles =
+    (await git.getStagedFiles({ cwd: gitRoot })).length !== 0;
   debug('hasStagedFiles', hasStagedFiles);
   needsCommit = needsAdd || hasStagedFiles;
 
@@ -64,7 +61,7 @@ async function runTasks({
 
   if (needsAdd) {
     logger.command('git add .');
-    await git.add({ cwd });
+    await git.add({ cwd: gitRoot });
   } else {
     if (add) {
       log.info('Nothing to add, working tree clean.');
@@ -74,7 +71,7 @@ async function runTasks({
   }
 
   if (needsCommit) {
-    await git.commit(commitMessage, { cwd });
+    await git.commit(commitMessage, { cwd: gitRoot });
   } else {
     log.info('Nothing to commit, working tree clean.');
   }
@@ -82,13 +79,13 @@ async function runTasks({
   clearHistory();
 
   if (!needsAdd && !needsCommit) {
-    await git.fetch({ cwd });
-    needsPush = needsPush && (await checkNeedsPush({ cwd }));
+    await git.fetch({ cwd: gitRoot });
+    needsPush = needsPush && (await checkNeedsPush({ cwd: gitRoot }));
   }
 
   if (needsPush) {
-    await git.push({ cwd, followTags: true, setUpstream: true });
-    await runHook(hooks.postpush, { cwd });
+    await git.push({ cwd: gitRoot, followTags: true, setUpstream: true });
+    await runHook(hooks.postpush, { cwd: gitRoot });
   } else {
     if (push) {
       log.info('Nothing to push, everything up-to-date.');

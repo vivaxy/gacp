@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.9.0](https://github.com/vivaxy/gacp/compare/v2.8.0...v2.9.0) (2020-05-05)
+
+
+### Features
+
+* :sparkles:  support run `gacp` in a git subdirectory ([9bad872](https://github.com/vivaxy/gacp/commit/9bad872))
+
+
+
 ## [2.8.0](https://github.com/vivaxy/gacp/compare/v2.7.2...v2.8.0) (2020-04-29)
 
 

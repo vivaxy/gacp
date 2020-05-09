@@ -69,7 +69,7 @@
     "@types/update-notifier": "^2.5.0",
     "@types/word-wrap": "^1.2.0",
     "@types/yargs": "^13.0.0",
-    "ava": "^2.2.0",
+    "ava": "^3.0.0",
     "cross-env": "^3.2.4",
     "husky": "^2.4.1",
     "lint-staged": "^9.2.1",

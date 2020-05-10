@@ -44,7 +44,7 @@
     "@commitlint/load": "^8.1.0",
     "@vivaxy/git": "^4.1.1",
     "chalk": "^4.0.0",
-    "conventional-commit-types": "^2.1.1",
+    "conventional-commit-types": "^3.0.0",
     "cosmiconfig": "^5.2.1",
     "execa": "^4.0.0",
     "figures": "^3.0.0",

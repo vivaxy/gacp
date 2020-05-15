@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "cross-env NODE_ENV=test nyc ava && nyc report --reporter=html && nyc report --reporter=lcov > coverage.lcov",
+    "test": "jest",
+    "coverage": "jest --collect-coverage",
     "beta": "npm run test && npm run build && npm publish --registry=https://registry.npmjs.org/ --tag beta",
     "release": "npm run test && npm run build && standard-version && git push --follow-tags && npm publish --registry=https://registry.npmjs.org/"
   },
@@ -49,10 +50,8 @@
     "execa": "^4.0.0",
     "figures": "^3.0.0",
     "fs-extra": "^9.0.0",
-    "ink": "^2.3.0",
     "log-util": "^2.3.0",
     "prompts": "^2.3.1",
-    "react": "^16.8.6",
     "right-pad": "^1.0.1",
     "update-notifier": "^4.0.0",
     "word-wrap": "^1.2.3",
@@ -64,19 +63,19 @@
     "@types/cosmiconfig": "^5.0.3",
     "@types/execa": "^0.9.0",
     "@types/fs-extra": "^8.0.0",
+    "@types/jest": "^25.2.2",
     "@types/node": "^12.0.12",
     "@types/prompts": "^2.0.1",
     "@types/update-notifier": "^4.0.0",
     "@types/word-wrap": "^1.2.0",
     "@types/yargs": "^15.0.0",
-    "ava": "^3.0.0",
     "cross-env": "^7.0.0",
     "husky": "^2.4.1",
+    "jest": "^26.0.1",
     "lint-staged": "^9.2.1",
-    "nyc": "^15.0.0",
     "prettier": "^1.18.2",
     "standard-version": "^8.0.0",
-    "ts-node": "^8.3.0",
+    "ts-jest": "^25.5.1",
     "typescript": "^3.5.2"
   },
   "lint-staged": {
@@ -91,33 +90,6 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "ava": {
-    "files": [
-      "src/**/__tests__/**/*.ts"
-    ],
-    "compileEnhancements": false,
-    "extensions": [
-      "ts"
-    ],
-    "require": [
-      "ts-node/register"
-    ]
-  },
-  "nyc": {
-    "include": [
-      "src/**/*.ts"
-    ],
-    "exclude": [
-      "**/*.d.ts"
-    ],
-    "extension": [
-      ".ts"
-    ],
-    "require": [
-      "ts-node/register"
-    ],
-    "sourceMap": true
-  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
@@ -127,5 +99,16 @@
     "hooks": {
       "postpush": "echo 'push done'"
     }
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "preset": "ts-jest",
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.test.ts?(x)"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/__tests__/**/*.ts"
+    ]
   }
 }

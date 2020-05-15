@@ -8,7 +8,7 @@
 [![Codecov][codecov-image]][codecov-url]
 [![Financial Contributors on Open Collective](https://opencollective.com/gacp/all/badge.svg?label=financial+contributors)](https://opencollective.com/gacp)
 
-💬Git add, commit, push with conventional-changelog and gitmoji.
+💬Git add, commit, push with [Conventional Commits](https://www.conventionalcommits.org/) and [Gitmoji](https://gitmoji.carloscuesta.me/).
 
 ![GACP](./assets/images/gacp.gif)
 

@@ -2,8 +2,7 @@
  * @since 2016-11-22 16:16
  * @author vivaxy
  */
-
-import chalk from 'chalk';
+import chalk = require('chalk');
 import * as figures from 'figures';
 import { createLogger, levels } from 'log-util';
 

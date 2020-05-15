@@ -11,8 +11,8 @@ async function hasCommitInShell(
 ): Promise<boolean> {
   let result = true;
   try {
-    const { code, stdout } = await execa(file, args);
-    if (code === 0) {
+    const { exitCode, stdout } = await execa(file, args);
+    if (exitCode === 0) {
       const splitResult = stdout.split('\n\r');
       if (splitResult[0] === '') {
         result = false;

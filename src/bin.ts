@@ -3,8 +3,8 @@
  * @since 2016-11-22 13:29
  * @author vivaxy
  */
-import chalk from 'chalk';
 import * as yargs from 'yargs';
+import chalk = require('chalk');
 import * as log from 'log-util';
 import * as cosmiconfig from 'cosmiconfig';
 import * as updateNotifier from 'update-notifier';

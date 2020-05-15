@@ -9,8 +9,8 @@ export default async function getInfoFromShell(
   file: string,
   args: string[],
 ): Promise<string> {
-  const { code, stdout } = await execa(file, args);
-  if (code === 0) {
+  const { exitCode, stdout } = await execa(file, args);
+  if (exitCode === 0) {
     return stdout.split('\n')[0];
   }
   return '';

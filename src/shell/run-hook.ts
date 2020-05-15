@@ -15,5 +15,5 @@ export default async function runHook(
   if (!script) {
     return;
   }
-  await execa.shell(script, { cwd, stdio: 'inherit' });
+  await execa.command(script, { cwd, stdio: 'inherit' });
 }

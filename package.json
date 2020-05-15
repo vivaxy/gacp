@@ -76,7 +76,7 @@
     "prettier": "^1.18.2",
     "standard-version": "^8.0.0",
     "ts-jest": "^25.5.1",
-    "typescript": "^3.5.2"
+    "typescript": "^3.9.2"
   },
   "lint-staged": {
     "*.{js,ts,css,less,json,md,html,yml,yaml,pcss,jsx,tsx}": [

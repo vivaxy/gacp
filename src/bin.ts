@@ -6,7 +6,7 @@
 import * as yargs from 'yargs';
 import chalk = require('chalk');
 import * as log from 'log-util';
-import * as cosmiconfig from 'cosmiconfig';
+import { cosmiconfig } from 'cosmiconfig';
 import * as updateNotifier from 'update-notifier';
 
 import gacp from './gacp';
@@ -18,7 +18,6 @@ const pkg = require('../package.json');
 function debug(...message: any[]) {
   log.debug('gacp:bin', ...message);
 }
-
 async function configureYargs() {
   const explorer = cosmiconfig(pkg.name);
   const cosmiconfigResult = await explorer.search();
@@ -82,7 +81,7 @@ function notifyUpdate() {
   }
 }
 
-(async function() {
+(async function () {
   try {
     notifyUpdate();
     const extraConfigs = await configureYargs();

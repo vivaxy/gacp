@@ -8,3 +8,4 @@ coverage
 coverage.lcov
 lib
 yarn-error.log
+/debug

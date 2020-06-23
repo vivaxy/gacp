@@ -2,6 +2,7 @@
  * @since 2016-11-23 10:23
  * @author vivaxy
  */
+import * as chalk from 'chalk';
 import * as log from 'log-util';
 import * as wrap from 'word-wrap';
 import * as prompts from 'prompts';
@@ -26,6 +27,10 @@ import { EMOJI_TYPES } from './configs';
 
 function debug(...message: any[]) {
   log.debug('gacp:prompt', ...message);
+}
+
+function trim(input: string) {
+  return input.trim();
 }
 
 export default async function prompt({
@@ -77,12 +82,14 @@ export default async function prompt({
       choices: typeList,
       initial: findInitial(typeList, history.type),
       suggest,
+      format: trim,
     },
     {
       type: 'text',
       name: 'scope',
       message: 'Denote the scope of this change',
       initial: history.scope,
+      format: trim,
     },
     {
       type: 'autocomplete',
@@ -95,7 +102,7 @@ export default async function prompt({
         if (input === 'none') {
           return '';
         }
-        return input;
+        return trim(input);
       },
     },
     {
@@ -103,18 +110,21 @@ export default async function prompt({
       name: 'subject',
       message: 'Write a short, imperative tense description of the change',
       initial: history.subject,
+      format: trim,
     },
     {
       type: 'text',
       name: 'body',
       message: 'Provide a longer description of the change',
       initial: history.body,
+      format: trim,
     },
     {
       type: 'text',
       name: 'footer',
       message: 'List any breaking changes or issues closed by this change',
       initial: history.footer,
+      format: trim,
     },
   ];
 
@@ -123,9 +133,11 @@ export default async function prompt({
   for (const q of questions) {
     let answer = {};
     if (editor && q.name === 'body') {
+      const body = trim(edit(history.body));
       answer = {
-        body: edit(history.body),
+        body,
       };
+      log.success(chalk.bold(q.message), chalk.grey('…'), body);
     } else {
       answer = await prompts(q, {
         onCancel() {
@@ -150,12 +162,11 @@ export default async function prompt({
   debug('maxHeaderLength', maxHeaderLength);
 
   // parentheses are only needed when a scope is present
-  let scope = answers.scope.trim();
-  scope = scope ? `(${scope})` : '';
+  const scope = answers.scope ? `(${answers.scope})` : '';
   const gitmoji = answers.gitmoji ? `${answers.gitmoji} ` : '';
 
   // Hard limit this line
-  let head = `${answers.type}${scope}: ${gitmoji} ${answers.subject.trim()}`;
+  let head = `${answers.type}${scope}: ${gitmoji} ${answers.subject}`;
   head = head.slice(0, maxHeaderLength);
 
   // Wrap these lines
@@ -180,5 +191,12 @@ export default async function prompt({
 
   await updateGitmojisStat({ key: emojiType, value: answers.gitmoji });
 
-  return `${head}\n\n${body}\n\n${footer}`;
+  let res = head;
+  if (body) {
+    res += `\n\n${body}`;
+  }
+  if (footer) {
+    res += `\n\n${footer}`;
+  }
+  return res;
 }

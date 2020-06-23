@@ -28,12 +28,14 @@ async function runTasks({
   add,
   push,
   emoji,
+  editor,
   cwd,
   hooks,
 }: {
   add: boolean;
   push: boolean;
   emoji: EMOJI_TYPES;
+  editor: boolean;
   cwd: string;
   hooks: Hooks;
 }) {
@@ -55,7 +57,7 @@ async function runTasks({
 
   // prompt first before performing any actions
   if (needsCommit) {
-    commitMessage = await prompt({ emojiType: emoji });
+    commitMessage = await prompt({ emojiType: emoji, editor });
     debug('commitMessage:', commitMessage);
   }
 
@@ -100,16 +102,18 @@ export default async function gacp({
   add,
   push,
   emoji,
+  editor,
   hooks,
 }: {
   cwd: string;
   add: boolean;
   push: boolean;
   emoji: EMOJI_TYPES;
+  editor: boolean;
   hooks: Hooks;
 }) {
   const startTime = getNow();
-  await runTasks({ cwd, add, push, emoji, hooks });
+  await runTasks({ cwd, add, push, emoji, editor, hooks });
   const endTime = getNow();
   log.success(`Done in ${(endTime - startTime) / 1000}s`);
   await flushHistory();

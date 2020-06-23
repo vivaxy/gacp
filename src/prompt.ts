@@ -2,18 +2,23 @@
  * @since 2016-11-23 10:23
  * @author vivaxy
  */
-
 import * as log from 'log-util';
 import * as wrap from 'word-wrap';
 import * as prompts from 'prompts';
+import { edit } from 'external-editor';
+import { RuleConfigTuple } from '@commitlint/types';
 
-import { getHistory, setHistory, History } from './messages/history';
+import {
+  getHistory,
+  setHistory,
+  Messages,
+  DEFAULT_MESSAGES,
+} from './messages/history';
 
 import { getCommitTypes, updateTypesStat } from './messages/commit-types';
 
 import { getGitmojis, updateGitmojisStat } from './messages/gitmojis';
 import {
-  CommitlintRule,
   getCommitlintConfigRules,
   getRuleValue,
 } from './messages/commitlint-config';
@@ -24,8 +29,10 @@ function debug(...message: any[]) {
 }
 
 export default async function prompt({
+  editor,
   emojiType,
 }: {
+  editor: boolean;
   emojiType: EMOJI_TYPES;
 }) {
   const [typeList, gitmojiList] = await Promise.all([
@@ -35,7 +42,7 @@ export default async function prompt({
   const history = getHistory();
 
   function findInitial(list: Array<{ value: string }>, key: string) {
-    const index = list.findIndex(function({ value }) {
+    const index = list.findIndex(function ({ value }) {
       return value === key;
     });
     if (index === -1) {
@@ -51,7 +58,7 @@ export default async function prompt({
     if (!input) {
       return choices;
     }
-    return choices.filter(function({ title, value }) {
+    return choices.filter(function ({ title, value }) {
       return (
         title.toLowerCase().indexOf(input.toLowerCase()) > -1 ||
         value.toLowerCase().indexOf(input.toLowerCase()) > -1
@@ -111,12 +118,25 @@ export default async function prompt({
     },
   ];
 
-  const answers = (await prompts(questions, {
-    onCancel() {
-      process.exit(0);
-    },
-  })) as History;
+  const answers: Messages = DEFAULT_MESSAGES;
 
+  for (const q of questions) {
+    let answer = {};
+    if (editor && q.name === 'body') {
+      answer = {
+        body: edit(history.body),
+      };
+    } else {
+      answer = await prompts(q, {
+        onCancel() {
+          process.exit(0);
+        },
+      });
+    }
+
+    debug('got answer', answer);
+    Object.assign(answers, answer);
+  }
   debug('got answers', answers);
   setHistory(answers);
 
@@ -148,7 +168,7 @@ export default async function prompt({
     };
   }
 
-  function wrapWords(words: string, rule: CommitlintRule): string {
+  function wrapWords(words: string, rule?: RuleConfigTuple<number>): string {
     const maxLineWidth = getRuleValue(rule, words.length);
     return wrap(words, getWrapOptions(maxLineWidth));
   }

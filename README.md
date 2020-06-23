@@ -28,6 +28,8 @@
 
 `gacp --emoji emoji`
 
+`gacp --editor`
+
 ## Configuration File
 
 You can configure gacp via:

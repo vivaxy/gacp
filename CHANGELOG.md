@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.10.0](https://github.com/vivaxy/gacp/compare/v2.9.0...v2.10.0) (2020-06-23)
+
+
+### Features
+
+* :sparkles:  support multi-line longer description ([42c431a](https://github.com/vivaxy/gacp/commit/42c431a73974b293df730731ffe75ccd46aec1e4)), closes [#40](https://github.com/vivaxy/gacp/issues/40) [#43](https://github.com/vivaxy/gacp/issues/43)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chalk to v4 ([4dd27bd](https://github.com/vivaxy/gacp/commit/4dd27bd040488599c57089fb74fe472b2188b2a7))
+* **deps:** update dependency conventional-commit-types to v3 ([44fe77d](https://github.com/vivaxy/gacp/commit/44fe77d06b988447d93d6e2d0f8ef31ef869cf6e))
+* **deps:** update dependency cosmiconfig to v6 ([bf0168e](https://github.com/vivaxy/gacp/commit/bf0168e555953f412d3597bebbe2a3244c31d0b2))
+* **deps:** update dependency execa to ^0.11.0 ([55e4b14](https://github.com/vivaxy/gacp/commit/55e4b147e640ae137151c39f465d094a9d255cce))
+* **deps:** update dependency execa to v4 ([87a4dc4](https://github.com/vivaxy/gacp/commit/87a4dc48269ec443e259b3fa3dffcdf20036ec21))
+* **deps:** update dependency fs-extra to v9 ([ada4c09](https://github.com/vivaxy/gacp/commit/ada4c092147eb0c65fa003d84f5808d0713345b5))
+* **deps:** update dependency update-notifier to v4 ([2e1670f](https://github.com/vivaxy/gacp/commit/2e1670f3df1ae59ced7b06c390ee349a1d68298a))
+* **deps:** update dependency yargs to v15 ([f8cde91](https://github.com/vivaxy/gacp/commit/f8cde91994068a23d5c4f77b1d450274c6a73059))
+
 ## [2.9.0](https://github.com/vivaxy/gacp/compare/v2.8.0...v2.9.0) (2020-05-05)
 
 

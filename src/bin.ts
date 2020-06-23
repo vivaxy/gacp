@@ -40,6 +40,11 @@ async function configureYargs() {
         choices: ['code', 'emoji'],
         default: 'code',
       },
+      editor: {
+        type: 'boolean',
+        desc: 'use node external editor in longer description',
+        default: false,
+      },
       logLevel: {
         type: 'number',
         desc: 'log level',
@@ -85,13 +90,14 @@ function notifyUpdate() {
   try {
     notifyUpdate();
     const extraConfigs = await configureYargs();
-    const { logLevel, cwd, emoji, add, push } = yargs.argv;
+    const { logLevel, cwd, emoji, add, push, editor } = yargs.argv;
     log.setLevel(logLevel as number);
     await gacp({
       cwd: cwd as string,
       add: add as boolean,
       push: push as boolean,
       emoji: emoji as EMOJI_TYPES,
+      editor: editor as boolean,
       hooks: {
         postpush: extraConfigs.hooks.postpush,
       },

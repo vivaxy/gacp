@@ -1,11 +1,7 @@
-// @ts-ignore
-import * as load from '@commitlint/load';
+import load from '@commitlint/load';
+import { QualifiedRules, RuleConfigTuple } from '@commitlint/types';
 
-export type CommitlintRule = [number, string, number];
-
-export async function getCommitlintConfigRules(): Promise<{
-  [key: string]: CommitlintRule;
-}> {
+export async function getCommitlintConfigRules(): Promise<QualifiedRules> {
   let rules;
   try {
     const config = await load();
@@ -17,7 +13,7 @@ export async function getCommitlintConfigRules(): Promise<{
 }
 
 export function getRuleValue(
-  [level, applicable, value]: CommitlintRule = [0, 'never', 0],
+  [level, applicable, value]: RuleConfigTuple<number> = [0, 'never', 0],
   defaultValue: number,
 ) {
   return level === 2 && applicable === 'always' ? value : defaultValue;

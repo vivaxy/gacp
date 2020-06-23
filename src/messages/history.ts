@@ -11,7 +11,7 @@ import { PATHS } from '../configs';
 const { GACPHOME, HISTORY_FILE_NAME } = PATHS;
 const historyFile = path.join(GACPHOME, HISTORY_FILE_NAME);
 
-export interface History {
+export interface Messages {
   type: string;
   scope: string;
   gitmoji: string;
@@ -20,9 +20,7 @@ export interface History {
   footer: string;
 }
 
-let cache: History | null = null;
-
-const defaultCache = {
+export const DEFAULT_MESSAGES: Messages = {
   type: '',
   scope: '',
   gitmoji: '',
@@ -31,32 +29,34 @@ const defaultCache = {
   footer: '',
 };
 
+let cache: Messages = DEFAULT_MESSAGES;
+
 function debug(...message: any[]) {
   log.debug('gacp:history', ...message);
 }
 
-export function getHistory(): History {
+export function getHistory(): Messages {
   debug('reading history');
   if (cache) {
     // already read from file system
     return cache;
   }
   try {
-    cache = require(historyFile) as History;
+    cache = require(historyFile) as Messages;
   } catch (e) {
     debug('history file not exists');
-    cache = defaultCache;
+    cache = DEFAULT_MESSAGES;
   }
   return cache;
 }
 
-export function setHistory(history: History) {
+export function setHistory(history: Partial<Messages>) {
   debug(`set: ${JSON.stringify(history)}`);
-  cache = history || {};
+  cache = { ...cache, ...history };
 }
 
 export function clearHistory() {
-  cache = defaultCache;
+  cache = DEFAULT_MESSAGES;
 }
 
 export async function flushHistory() {

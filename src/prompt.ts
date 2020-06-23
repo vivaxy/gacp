@@ -2,18 +2,24 @@
  * @since 2016-11-23 10:23
  * @author vivaxy
  */
-
+import * as chalk from 'chalk';
 import * as log from 'log-util';
 import * as wrap from 'word-wrap';
 import * as prompts from 'prompts';
+import { edit } from 'external-editor';
+import { RuleConfigTuple } from '@commitlint/types';
 
-import { getHistory, setHistory, History } from './messages/history';
+import {
+  getHistory,
+  setHistory,
+  Messages,
+  DEFAULT_MESSAGES,
+} from './messages/history';
 
 import { getCommitTypes, updateTypesStat } from './messages/commit-types';
 
 import { getGitmojis, updateGitmojisStat } from './messages/gitmojis';
 import {
-  CommitlintRule,
   getCommitlintConfigRules,
   getRuleValue,
 } from './messages/commitlint-config';
@@ -23,9 +29,15 @@ function debug(...message: any[]) {
   log.debug('gacp:prompt', ...message);
 }
 
+function trim(input: string) {
+  return input.trim();
+}
+
 export default async function prompt({
+  editor,
   emojiType,
 }: {
+  editor: boolean;
   emojiType: EMOJI_TYPES;
 }) {
   const [typeList, gitmojiList] = await Promise.all([
@@ -35,7 +47,7 @@ export default async function prompt({
   const history = getHistory();
 
   function findInitial(list: Array<{ value: string }>, key: string) {
-    const index = list.findIndex(function({ value }) {
+    const index = list.findIndex(function ({ value }) {
       return value === key;
     });
     if (index === -1) {
@@ -51,7 +63,7 @@ export default async function prompt({
     if (!input) {
       return choices;
     }
-    return choices.filter(function({ title, value }) {
+    return choices.filter(function ({ title, value }) {
       return (
         title.toLowerCase().indexOf(input.toLowerCase()) > -1 ||
         value.toLowerCase().indexOf(input.toLowerCase()) > -1
@@ -70,12 +82,14 @@ export default async function prompt({
       choices: typeList,
       initial: findInitial(typeList, history.type),
       suggest,
+      format: trim,
     },
     {
       type: 'text',
       name: 'scope',
       message: 'Denote the scope of this change',
       initial: history.scope,
+      format: trim,
     },
     {
       type: 'autocomplete',
@@ -88,7 +102,7 @@ export default async function prompt({
         if (input === 'none') {
           return '';
         }
-        return input;
+        return trim(input);
       },
     },
     {
@@ -96,27 +110,45 @@ export default async function prompt({
       name: 'subject',
       message: 'Write a short, imperative tense description of the change',
       initial: history.subject,
+      format: trim,
     },
     {
       type: 'text',
       name: 'body',
       message: 'Provide a longer description of the change',
       initial: history.body,
+      format: trim,
     },
     {
       type: 'text',
       name: 'footer',
       message: 'List any breaking changes or issues closed by this change',
       initial: history.footer,
+      format: trim,
     },
   ];
 
-  const answers = (await prompts(questions, {
-    onCancel() {
-      process.exit(0);
-    },
-  })) as History;
+  const answers: Messages = DEFAULT_MESSAGES;
 
+  for (const q of questions) {
+    let answer = {};
+    if (editor && q.name === 'body') {
+      const body = trim(edit(history.body));
+      answer = {
+        body,
+      };
+      log.success(chalk.bold(q.message), chalk.grey('…'), body);
+    } else {
+      answer = await prompts(q, {
+        onCancel() {
+          process.exit(0);
+        },
+      });
+    }
+
+    debug('got answer', answer);
+    Object.assign(answers, answer);
+  }
   debug('got answers', answers);
   setHistory(answers);
 
@@ -130,12 +162,11 @@ export default async function prompt({
   debug('maxHeaderLength', maxHeaderLength);
 
   // parentheses are only needed when a scope is present
-  let scope = answers.scope.trim();
-  scope = scope ? `(${scope})` : '';
+  const scope = answers.scope ? `(${answers.scope})` : '';
   const gitmoji = answers.gitmoji ? `${answers.gitmoji} ` : '';
 
   // Hard limit this line
-  let head = `${answers.type}${scope}: ${gitmoji} ${answers.subject.trim()}`;
+  let head = `${answers.type}${scope}: ${gitmoji} ${answers.subject}`;
   head = head.slice(0, maxHeaderLength);
 
   // Wrap these lines
@@ -148,7 +179,7 @@ export default async function prompt({
     };
   }
 
-  function wrapWords(words: string, rule: CommitlintRule): string {
+  function wrapWords(words: string, rule?: RuleConfigTuple<number>): string {
     const maxLineWidth = getRuleValue(rule, words.length);
     return wrap(words, getWrapOptions(maxLineWidth));
   }
@@ -160,5 +191,12 @@ export default async function prompt({
 
   await updateGitmojisStat({ key: emojiType, value: answers.gitmoji });
 
-  return `${head}\n\n${body}\n\n${footer}`;
+  let res = head;
+  if (body) {
+    res += `\n\n${body}`;
+  }
+  if (footer) {
+    res += `\n\n${footer}`;
+  }
+  return res;
 }

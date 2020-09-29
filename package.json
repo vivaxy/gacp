@@ -55,7 +55,7 @@
     "log-util": "^2.3.0",
     "prompts": "^2.3.1",
     "right-pad": "^1.0.1",
-    "update-notifier": "^4.0.0",
+    "update-notifier": "^5.0.0",
     "word-wrap": "^1.2.3",
     "yargs": "^16.0.0"
   },

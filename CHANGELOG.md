@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.2](https://github.com/vivaxy/gacp/compare/v2.10.1...v2.10.2) (2020-10-13)
+
+
+### Bug Fixes
+
+* :bug:  fix history not cleared ([b7fb625](https://github.com/vivaxy/gacp/commit/b7fb625d2aca5fd7b5042d7bc1d885d9e4adde87))
+* :bug:  fix history not cleared after a successfully commit ([c06e3e6](https://github.com/vivaxy/gacp/commit/c06e3e6fb07f9e73dd31f1c38fe48d8ba8070fbe))
+
 ### [2.10.1](https://github.com/vivaxy/gacp/compare/v2.10.0...v2.10.1) (2020-10-13)
 
 

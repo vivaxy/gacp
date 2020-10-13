@@ -56,9 +56,11 @@ export function setHistory(history: Partial<Messages>) {
 }
 
 export function clearHistory() {
+  debug('clear');
   cache = DEFAULT_MESSAGES;
 }
 
 export async function flushHistory() {
+  debug(`flush: ${JSON.stringify(cache || {})}`);
   await fse.outputFile(historyFile, JSON.stringify(cache || {}, null, 2));
 }

@@ -56,7 +56,7 @@ export function setHistory(history: Partial<Messages>) {
 }
 
 export function clearHistory() {
-  debug('clear');
+  debug(`clear: ${DEFAULT_MESSAGES}`);
   cache = DEFAULT_MESSAGES;
 }
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.1](https://github.com/vivaxy/gacp/compare/v2.10.0...v2.10.1) (2020-10-13)
+
+
+### Bug Fixes
+
+* :bug: fix history not working ([8cb774d](https://github.com/vivaxy/gacp/commit/8cb774d6ff11a40b0a5a6268e2a06a1fe57492ab))
+* **deps:** update dependency cosmiconfig to v7 ([6cd362b](https://github.com/vivaxy/gacp/commit/6cd362b1eb54b005337d37af0f9f4801c04ddc78))
+* **deps:** update dependency update-notifier to v5 ([781ce71](https://github.com/vivaxy/gacp/commit/781ce71eae1d656a59a2d4c019ff8dcd4902707c))
+* **deps:** update dependency yargs to v16 ([98f5753](https://github.com/vivaxy/gacp/commit/98f57538a78e926080b4cd344c5ed95a1cfe0d6f))
+
 ## [2.10.0](https://github.com/vivaxy/gacp/compare/v2.9.0...v2.10.0) (2020-06-23)
 
 

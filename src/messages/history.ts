@@ -29,7 +29,7 @@ export const DEFAULT_MESSAGES: Messages = {
   footer: '',
 };
 
-let cache: Messages = DEFAULT_MESSAGES;
+let cache: Messages;
 
 function debug(...message: any[]) {
   log.debug('gacp:history', ...message);

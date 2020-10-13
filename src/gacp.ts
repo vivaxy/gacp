@@ -10,7 +10,7 @@ import runHook from './shell/run-hook';
 import { EMOJI_TYPES } from './configs';
 import * as logger from './shell/logger';
 import checkNeedsPush from './git/check-needs-push';
-import { clearHistory, flushHistory } from './messages/history';
+import { clearHistory } from './messages/history';
 
 type Hooks = {
   postpush: string;
@@ -116,5 +116,4 @@ export default async function gacp({
   await runTasks({ cwd, add, push, emoji, editor, hooks });
   const endTime = getNow();
   log.success(`Done in ${(endTime - startTime) / 1000}s`);
-  await flushHistory();
 }

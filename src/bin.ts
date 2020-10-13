@@ -102,6 +102,7 @@ function notifyUpdate() {
         postpush: extraConfigs.hooks.postpush,
       },
     });
+    await flushHistory();
   } catch (e) {
     log.error(e.message);
     log.debug(e.stack);

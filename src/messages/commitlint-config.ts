@@ -13,7 +13,7 @@ export async function getCommitlintConfigRules(): Promise<QualifiedRules> {
 }
 
 export function getRuleValue(
-  [level, applicable, value]: RuleConfigTuple<number> = [0, 'never', 0],
+  [level, applicable, value = 0]: RuleConfigTuple<number> = [0, 'never', 0],
   defaultValue: number,
 ) {
   return level === 2 && applicable === 'always' ? value : defaultValue;

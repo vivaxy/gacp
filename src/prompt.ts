@@ -128,7 +128,7 @@ export default async function prompt({
     },
   ];
 
-  const answers: Messages = DEFAULT_MESSAGES;
+  const answers: Messages = { ...DEFAULT_MESSAGES };
 
   for (const q of questions) {
     let answer = {};

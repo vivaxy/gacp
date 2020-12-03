@@ -48,7 +48,7 @@
     "chalk": "^4.0.0",
     "conventional-commit-types": "^3.0.0",
     "cosmiconfig": "^7.0.0",
-    "execa": "^4.0.0",
+    "execa": "^5.0.0",
     "external-editor": "^3.1.0",
     "figures": "^3.0.0",
     "fs-extra": "^9.0.0",

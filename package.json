@@ -71,7 +71,7 @@
     "@types/word-wrap": "^1.2.0",
     "@types/yargs": "^16.0.0",
     "cross-env": "^7.0.0",
-    "husky": "^4.0.0",
+    "husky": "^5.0.0",
     "jest": "^26.0.1",
     "lint-staged": "^10.0.0",
     "prettier": "^2.0.0",

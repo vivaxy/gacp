@@ -12,7 +12,10 @@
     "test": "jest",
     "coverage": "jest --collect-coverage",
     "beta": "npm run test && npm run build && npm publish --registry=https://registry.npmjs.org/ --tag beta",
-    "release": "npm run test && npm run build && standard-version && git push --follow-tags && npm publish --registry=https://registry.npmjs.org/"
+    "release": "npm run test && npm run build && standard-version && git push --follow-tags && npm publish --registry=https://registry.npmjs.org/",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "repository": {
     "type": "git",
@@ -71,9 +74,10 @@
     "@types/word-wrap": "^1.2.0",
     "@types/yargs": "^16.0.0",
     "cross-env": "^7.0.0",
-    "husky": "^4.0.0",
+    "husky": "5",
     "jest": "^26.0.1",
     "lint-staged": "^10.0.0",
+    "pinst": "^2.1.4",
     "prettier": "^2.0.0",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.0.0",
@@ -81,15 +85,8 @@
   },
   "lint-staged": {
     "*.{js,ts,css,less,json,md,html,yml,yaml,pcss,jsx,tsx}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "commitlint": {
     "extends": [

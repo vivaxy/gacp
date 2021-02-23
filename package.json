@@ -45,8 +45,8 @@
   },
   "homepage": "https://github.com/vivaxy/gacp#readme",
   "dependencies": {
-    "@commitlint/load": "^11.0.0",
-    "@commitlint/types": "^11.0.0",
+    "@commitlint/load": "^12.0.0",
+    "@commitlint/types": "^12.0.0",
     "@vivaxy/git": "^4.1.1",
     "chalk": "^4.0.0",
     "conventional-commit-types": "^3.0.0",
@@ -63,8 +63,8 @@
     "yargs": "^16.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/cli": "^12.0.0",
+    "@commitlint/config-conventional": "^12.0.0",
     "@types/execa": "^0.9.0",
     "@types/fs-extra": "^9.0.1",
     "@types/jest": "^26.0.0",

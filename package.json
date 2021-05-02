@@ -60,7 +60,7 @@
     "right-pad": "^1.0.1",
     "update-notifier": "^5.0.0",
     "word-wrap": "^1.2.3",
-    "yargs": "^16.0.0"
+    "yargs": "^17.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.0",

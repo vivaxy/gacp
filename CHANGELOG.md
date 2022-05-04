@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/vivaxy/gacp/compare/v2.10.2...v3.0.0) (2022-05-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* set gitmoji disabled by default. closes: #118
+* gacp no longer push tags. closes #123
+
+### Features
+
+*  support disable gitmoji ([0b9e9dd](https://github.com/vivaxy/gacp/commit/0b9e9dd048e42e4f2e92c8097c49a78c6f71c4b3))
+* **add `--no-verify` option`:** :sparkles: ([1d81dab](https://github.com/vivaxy/gacp/commit/1d81dabcba5a250b15cd99da6abd7293da9d67f4)), closes [#121](https://github.com/vivaxy/gacp/issues/121)
+* remove `--follow-tags` when pushing ([f94879e](https://github.com/vivaxy/gacp/commit/f94879e392d00ca000b08cce9e900b2f38e1b0af))
+
+
+### Bug Fixes
+
+* **deps:** update dependency execa to v5 ([c8d39de](https://github.com/vivaxy/gacp/commit/c8d39defe4d2e81966368817b74d704b8ad577f0))
+* **deps:** update dependency fs-extra to v10 ([69d3ace](https://github.com/vivaxy/gacp/commit/69d3acec47a02629943b44b41be3084cdc43cfac))
+* **deps:** update dependency yargs to v17 ([78ea990](https://github.com/vivaxy/gacp/commit/78ea9902ff6b198deeb19a0240e81e54cf5c5028))
+
 ### [2.10.2](https://github.com/vivaxy/gacp/compare/v2.10.1...v2.10.2) (2020-10-13)
 
 

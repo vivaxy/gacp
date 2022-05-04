@@ -38,8 +38,8 @@ async function configureYargs() {
       emoji: {
         type: 'string',
         desc: 'use emoji or code',
-        choices: ['code', 'emoji'],
-        default: 'code',
+        choices: ['none', 'code', 'emoji'],
+        default: 'none',
       },
       editor: {
         type: 'boolean',

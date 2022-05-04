@@ -90,8 +90,10 @@ export default async function prompt({
       message: 'Denote the scope of this change',
       initial: history.scope,
       format: trim,
-    },
-    {
+    }
+  ];
+  if (gitmojiList.length) {
+    questions.push({
       type: 'autocomplete',
       name: 'gitmoji',
       message: 'Choose a gitmoji',
@@ -104,8 +106,9 @@ export default async function prompt({
         }
         return trim(input);
       },
-    },
-    {
+    })
+  }
+  questions.push({
       type: 'text',
       name: 'subject',
       message: 'Write a short, imperative tense description of the change',
@@ -125,8 +128,7 @@ export default async function prompt({
       message: 'List any breaking changes or issues closed by this change',
       initial: history.footer,
       format: trim,
-    },
-  ];
+    });
 
   const answers: Messages = { ...DEFAULT_MESSAGES };
 
@@ -189,7 +191,9 @@ export default async function prompt({
 
   await updateTypesStat(answers.type);
 
-  await updateGitmojisStat({ key: emojiType, value: answers.gitmoji });
+  if (emojiType === EMOJI_TYPES.CODE || emojiType === EMOJI_TYPES.EMOJI) {
+    await updateGitmojisStat({ key: emojiType, value: answers.gitmoji });
+  }
 
   let res = head;
   if (body) {

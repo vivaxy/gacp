@@ -52,6 +52,9 @@ const ensureGitmojiConfig = async () => {
 };
 
 export async function getGitmojis({ emojiType }: { emojiType: EMOJI_TYPES }) {
+  if (emojiType === EMOJI_TYPES.NONE) {
+    return []
+  }
   await ensureGitmojiConfig();
 
   const gitmojis = await configManager.readListByStatOrder();
@@ -70,7 +73,7 @@ export async function updateGitmojisStat({
   key,
   value,
 }: {
-  key: EMOJI_TYPES;
+  key: EMOJI_TYPES.EMOJI | EMOJI_TYPES.CODE;
   value: string;
 }) {
   const { gitmojis: originalGitmojis } = configManager.read();

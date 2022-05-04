@@ -25,4 +25,5 @@ export enum ERROR_TYPES {
 export enum EMOJI_TYPES {
   EMOJI = 'emoji',
   CODE = 'code',
+  NONE = 'none',
 }

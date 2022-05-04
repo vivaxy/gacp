@@ -18,11 +18,12 @@ const pkg = require('../package.json');
 function debug(...message: any[]) {
   log.debug('gacp:bin', ...message);
 }
+
 async function configureYargs() {
   const explorer = cosmiconfig(pkg.name);
   const cosmiconfigResult = await explorer.search();
   const { config = {} } = cosmiconfigResult || {};
-  yargs
+  (yargs
     .options({
       add: {
         type: 'boolean',
@@ -55,10 +56,15 @@ async function configureYargs() {
         desc: 'working directory',
         default: process.cwd(),
       },
+      noVerify: {
+        type: 'boolean',
+        desc: 'add --no-verify to git commit and git push',
+        default: false,
+      },
     })
     .config(config)
     .help()
-    .version().argv._;
+    .version().argv as unknown as any)._;
 
   const hooks = config.hooks || {};
   return {
@@ -90,14 +96,23 @@ function notifyUpdate() {
   try {
     notifyUpdate();
     const extraConfigs = await configureYargs();
-    const { logLevel, cwd, emoji, add, push, editor } = yargs.argv;
-    log.setLevel(logLevel as number);
+    const { logLevel, cwd, emoji, add, push, verify, editor } = yargs.argv as unknown as {
+      logLevel: number;
+      cwd: string;
+      emoji: EMOJI_TYPES;
+      add: boolean;
+      push: boolean;
+      verify: boolean;
+      editor: boolean;
+    };
+    log.setLevel(logLevel);
     await gacp({
       cwd: cwd as string,
       add: add as boolean,
       push: push as boolean,
       emoji: emoji as EMOJI_TYPES,
       editor: editor as boolean,
+      verify: verify as boolean,
       hooks: {
         postpush: extraConfigs.hooks.postpush,
       },

@@ -30,6 +30,8 @@
 
 `gacp --editor`
 
+`gacp --no-verify`
+
 ## Configuration File
 
 You can configure gacp via:

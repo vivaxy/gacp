@@ -29,6 +29,7 @@ async function runTasks({
   push,
   emoji,
   editor,
+  verify,
   cwd,
   hooks,
 }: {
@@ -36,6 +37,7 @@ async function runTasks({
   push: boolean;
   emoji: EMOJI_TYPES;
   editor: boolean;
+  verify: boolean;
   cwd: string;
   hooks: Hooks;
 }) {
@@ -73,7 +75,7 @@ async function runTasks({
   }
 
   if (needsCommit) {
-    await git.commit(commitMessage, { cwd: gitRoot });
+    await git.commit(commitMessage, { cwd: gitRoot, noVerify: !verify });
   } else {
     log.info('Nothing to commit, working tree clean.');
   }
@@ -86,7 +88,7 @@ async function runTasks({
   }
 
   if (needsPush) {
-    await git.push({ cwd: gitRoot, setUpstream: true });
+    await git.push({ cwd: gitRoot, setUpstream: true, noVerify: !verify });
     await runHook(hooks.postpush, { cwd: gitRoot });
   } else {
     if (push) {
@@ -103,6 +105,7 @@ export default async function gacp({
   push,
   emoji,
   editor,
+  verify,
   hooks,
 }: {
   cwd: string;
@@ -110,10 +113,11 @@ export default async function gacp({
   push: boolean;
   emoji: EMOJI_TYPES;
   editor: boolean;
+  verify: boolean;
   hooks: Hooks;
 }) {
   const startTime = getNow();
-  await runTasks({ cwd, add, push, emoji, editor, hooks });
+  await runTasks({ cwd, add, push, emoji, editor, verify, hooks });
   const endTime = getNow();
   log.success(`Done in ${(endTime - startTime) / 1000}s`);
 }

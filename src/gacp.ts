@@ -86,7 +86,7 @@ async function runTasks({
   }
 
   if (needsPush) {
-    await git.push({ cwd: gitRoot, followTags: true, setUpstream: true });
+    await git.push({ cwd: gitRoot, setUpstream: true });
     await runHook(hooks.postpush, { cwd: gitRoot });
   } else {
     if (push) {

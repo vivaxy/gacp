@@ -39,7 +39,7 @@ async function configureYargs() {
         type: 'string',
         desc: 'use emoji or code',
         choices: ['none', 'code', 'emoji'],
-        default: 'none',
+        default: 'code',
       },
       editor: {
         type: 'boolean',

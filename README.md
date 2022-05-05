@@ -32,6 +32,8 @@
 
 `gacp --no-verify`
 
+`gacp --emoji none`
+
 ## Configuration File
 
 You can configure gacp via:

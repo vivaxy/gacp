@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/vivaxy/gacp/compare/v3.0.0...v3.0.1) (2022-05-05)
+
+
+### Bug Fixes
+
+* :bug:  revert default emoji config from none to code ([3000e9e](https://github.com/vivaxy/gacp/commit/3000e9e79e5caa8fe815ae8d7f4c1cbad4bfe625))
+
 ## [3.0.0](https://github.com/vivaxy/gacp/compare/v2.10.2...v3.0.0) (2022-05-04)
 
 

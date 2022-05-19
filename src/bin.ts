@@ -23,7 +23,7 @@ async function configureYargs() {
   const explorer = cosmiconfig(pkg.name);
   const cosmiconfigResult = await explorer.search();
   const { config = {} } = cosmiconfigResult || {};
-  (yargs
+  ((yargs
     .options({
       add: {
         type: 'boolean',
@@ -56,15 +56,15 @@ async function configureYargs() {
         desc: 'working directory',
         default: process.cwd(),
       },
-      noVerify: {
+      verify: {
         type: 'boolean',
-        desc: 'add --no-verify to git commit and git push',
-        default: false,
+        desc: 'verify git commit and git push',
+        default: true,
       },
     })
     .config(config)
     .help()
-    .version().argv as unknown as any)._;
+    .version().argv as unknown) as any)._;
 
   const hooks = config.hooks || {};
   return {
@@ -96,7 +96,15 @@ function notifyUpdate() {
   try {
     notifyUpdate();
     const extraConfigs = await configureYargs();
-    const { logLevel, cwd, emoji, add, push, verify, editor } = yargs.argv as unknown as {
+    const {
+      logLevel,
+      cwd,
+      emoji,
+      add,
+      push,
+      verify,
+      editor,
+    } = (yargs.argv as unknown) as {
       logLevel: number;
       cwd: string;
       emoji: EMOJI_TYPES;

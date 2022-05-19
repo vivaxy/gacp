@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.2](https://github.com/vivaxy/gacp/compare/v3.0.1...v3.0.2) (2022-05-19)
+
+
+### Bug Fixes
+
+* :bug:  fix no-verify behaviour ([156c75b](https://github.com/vivaxy/gacp/commit/156c75bb7cc17398b6b285f2bfe22e2b50479d0e)), closes [#124](https://github.com/vivaxy/gacp/issues/124)
+
 ### [3.0.1](https://github.com/vivaxy/gacp/compare/v3.0.0...v3.0.1) (2022-05-05)
 
 

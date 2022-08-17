@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.3](https://github.com/vivaxy/gacp/compare/v3.0.2...v3.0.3) (2022-08-17)
+
+
+### Bug Fixes
+
+* :bug:  cannot push when multiple remotes ([002ecbd](https://github.com/vivaxy/gacp/commit/002ecbdef192439646103430b81dd8d6ae15374b)), closes [#92](https://github.com/vivaxy/gacp/issues/92)
+
 ### [3.0.2](https://github.com/vivaxy/gacp/compare/v3.0.1...v3.0.2) (2022-05-19)
 
 

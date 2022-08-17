@@ -695,13 +695,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/fs-extra@^9.0.0":
-  version "9.0.13"
-  resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-9.0.13.tgz#7594fbae04fe7f1918ce8b3d213f74ff44ac1f45"
-  integrity sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==
-  dependencies:
-    "@types/node" "*"
-
 "@types/fs-extra@^9.0.1":
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-9.0.1.tgz#91c8fc4c51f6d5dbe44c2ca9ab09310bd00c7918"
@@ -812,14 +805,13 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@vivaxy/git@^4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@vivaxy/git/-/git-4.2.0.tgz#cbd331058423027ed6e6b26e606320b655c12a28"
-  integrity sha512-PuoUQDcxPBaTS0W2s+QCn/A1mP40Qiqb4kmB1bTS80R2xGv0zbQVjaAEmEHQz8yLyT2UISX/2Bfz6RD24yuVlw==
+"@vivaxy/git@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@vivaxy/git/-/git-4.2.1.tgz#99f0ee025b2170a2e0354b10a172fcc438c01533"
+  integrity sha512-Gpnne7sk3oTd0fyw1J3clVX2ZBkJjNRduccDbOcgYv31M35nBzUHSzQ56eFiJsOTNfdVadL2bo0ICw5oilGfEA==
   dependencies:
-    "@types/fs-extra" "^9.0.0"
     execa "^5.0.0"
-    fs-extra "^10.0.0"
+    fs-extra "^10.1.0"
 
 JSONStream@^1.0.4:
   version "1.3.5"
@@ -2227,6 +2219,15 @@ fs-extra@^10.0.0:
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-10.0.0.tgz#9ff61b655dde53fb34a82df84bb214ce802e17c1"
   integrity sha512-C5owb14u9eJwizKGdchcDUQeFtlSHHthBk8pbX9Vc1PFZrLombudjDnNns88aYslCyF6IY5SUw3Roz6xShcEIQ==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^2.0.0"
+
+fs-extra@^10.1.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-10.1.0.tgz#02873cfbc4084dde127eaa5f9905eef2325d1abf"
+  integrity sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==
   dependencies:
     graceful-fs "^4.2.0"
     jsonfile "^6.0.1"

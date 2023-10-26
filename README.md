@@ -58,6 +58,12 @@ Default configuration:
 }
 ```
 
+### emoji
+
+- code: `:grinning:`
+- emoji: `😀`
+- none: no emoji
+
 ## Change log
 
 [Change log](CHANGELOG.md)
